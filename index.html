@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>المهندس المحترف الشامل | إدارة المشاريع والحسابات والمخططات</title>
-<link href="https://fonts.googleapis.com/css2?family=Almarai:wght@400;700;800&family=Cairo:wght@400;600;700;800&family=Changa:wght@500;700&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+<title>المهندس الشامل Pro | الإدارة الهندسية والمقاولات</title>
+<link href="https://fonts.googleapis.com/css2?family=Almarai:wght@400;700;800&family=Amiri:wght@400;700&family=Cairo:wght@400;600;700;800&family=Changa:wght@500;700&family=IBM+Plex+Sans+Arabic:wght@400;600;700&family=Noto+Kufi+Arabic:wght@400;700&family=Readex+Pro:wght@400;600;700&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
   :root {
     --bg: #f1f5f9;
@@ -18,6 +18,7 @@
     --border: #e2e8f0;
     --header-bg: linear-gradient(135deg, #0f4c81 0%, #1e3a8a 100%);
     --font-main: 'Cairo', sans-serif;
+    --base-size: 14px;
   }
   [data-theme="dark"] {
     --bg: #0b1120;
@@ -31,18 +32,6 @@
     --border: #334155;
     --header-bg: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
   }
-  [data-theme="gold"] {
-    --bg: #18181b;
-    --card: #27272a;
-    --text: #fafafa;
-    --muted: #a1a1aa;
-    --primary: #eab308;
-    --accent: #f97316;
-    --success: #22c55e;
-    --danger: #ef4444;
-    --border: #3f3f46;
-    --header-bg: linear-gradient(135deg, #27272a 0%, #09090b 100%);
-  }
   [data-theme="blueprint"] {
     --bg: #0a192f;
     --card: #112240;
@@ -55,47 +44,70 @@
     --border: #233554;
     --header-bg: linear-gradient(135deg, #020c1b 0%, #112240 100%);
   }
+  [data-theme="gold"] {
+    --bg: #18181b;
+    --card: #27272a;
+    --text: #fafafa;
+    --muted: #a1a1aa;
+    --primary: #eab308;
+    --accent: #f97316;
+    --success: #22c55e;
+    --danger: #ef4444;
+    --border: #3f3f46;
+    --header-bg: linear-gradient(135deg, #27272a 0%, #09090b 100%);
+  }
+  [data-theme="emerald"] {
+    --bg: #ecfdf5;
+    --card: #ffffff;
+    --text: #064e3b;
+    --muted: #047857;
+    --primary: #059669;
+    --accent: #d97706;
+    --success: #10b981;
+    --danger: #dc2626;
+    --border: #a7f3d0;
+    --header-bg: linear-gradient(135deg, #065f46 0%, #047857 100%);
+  }
 
   * { box-sizing: border-box; margin: 0; padding: 0; font-family: var(--font-main); }
+  html { font-size: var(--base-size); }
   html, body { width: 100%; max-width: 100vw; overflow-x: hidden; background: var(--bg); color: var(--text); transition: 0.25s; }
 
   /* Header */
   header {
     background: var(--header-bg);
     color: #fff;
-    padding: 14px;
+    padding: 13px 14px;
     position: sticky;
     top: 0;
     z-index: 100;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.18);
   }
   .top-bar { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
-  .logo h1 { font-size: 1.1rem; font-weight: 800; }
-  .logo span { font-size: 0.7rem; opacity: 0.85; display: block; }
-  .header-controls { display: flex; gap: 5px; flex-wrap: wrap; justify-content: flex-end; }
-  .mini-select, .icon-btn {
-    background: rgba(255,255,255,0.16);
-    border: 1px solid rgba(255,255,255,0.25);
+  .logo h1 { font-size: 1.15rem; font-weight: 800; }
+  .logo span { font-size: 0.72rem; opacity: 0.88; display: block; }
+  .header-quick { display: flex; gap: 6px; align-items: center; }
+  .icon-btn {
+    background: rgba(255,255,255,0.18);
+    border: 1px solid rgba(255,255,255,0.28);
     color: #fff;
-    padding: 6px 8px;
-    border-radius: 8px;
-    font-size: 0.72rem;
+    padding: 6px 10px;
+    border-radius: 9px;
+    font-size: 0.78rem;
     font-weight: 700;
     cursor: pointer;
-    outline: none;
   }
-  .mini-select option { color: #000; }
 
-  /* Navigation Grid (2 rows x 3 cols for zero horizontal scroll) */
+  /* Navigation Tabs (Grid 2x3 + Settings) */
   .nav-tabs {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 6px;
+    gap: 5px;
     padding: 8px 10px;
     background: var(--card);
     border-bottom: 1px solid var(--border);
     position: sticky;
-    top: 64px;
+    top: 62px;
     z-index: 99;
   }
   .tab-btn {
@@ -104,7 +116,7 @@
     border: 1px solid var(--border);
     padding: 7px 4px;
     border-radius: 9px;
-    font-size: 0.72rem;
+    font-size: 0.74rem;
     font-weight: 700;
     cursor: pointer;
     text-align: center;
@@ -112,15 +124,14 @@
   }
   .tab-btn.active {
     background: var(--primary);
-    color: #0b1120;
+    color: #fff;
     border-color: var(--primary);
     font-weight: 800;
   }
-  :root .tab-btn.active { color: #fff; }
   [data-theme="dark"] .tab-btn.active, [data-theme="gold"] .tab-btn.active, [data-theme="blueprint"] .tab-btn.active { color: #0b1120; }
 
   /* Main Container */
-  .container { padding: 12px; max-width: 900px; margin: 0 auto; padding-bottom: 90px; }
+  .container { padding: 12px; max-width: 900px; margin: 0 auto; padding-bottom: 95px; }
   .section { display: none; animation: fadeIn 0.25s ease; }
   .section.active { display: block; }
   @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
@@ -135,7 +146,7 @@
     box-shadow: 0 2px 8px rgba(0,0,0,0.04);
   }
   .card-title {
-    font-size: 0.95rem;
+    font-size: 0.96rem;
     font-weight: 800;
     color: var(--primary);
     margin-bottom: 10px;
@@ -150,7 +161,7 @@
   .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
   .form-group { margin-bottom: 8px; }
   .form-group.full { grid-column: 1 / -1; }
-  label { display: block; font-size: 0.76rem; font-weight: 700; margin-bottom: 3px; color: var(--muted); }
+  label { display: block; font-size: 0.78rem; font-weight: 700; margin-bottom: 3px; color: var(--muted); }
   input, select, textarea {
     width: 100%;
     padding: 9px 10px;
@@ -158,7 +169,7 @@
     border-radius: 9px;
     background: var(--bg);
     color: var(--text);
-    font-size: 0.85rem;
+    font-size: 0.86rem;
     outline: none;
   }
   input:focus, select:focus { border-color: var(--primary); }
@@ -171,7 +182,7 @@
     color: var(--text);
     padding: 4px 9px;
     border-radius: 16px;
-    font-size: 0.72rem;
+    font-size: 0.74rem;
     cursor: pointer;
     transition: 0.2s;
   }
@@ -196,7 +207,8 @@
   [data-theme="dark"] .btn-primary, [data-theme="gold"] .btn-primary, [data-theme="blueprint"] .btn-primary { color: #0b1120; }
   .btn-success { background: var(--success); color: #fff; }
   .btn-accent { background: var(--accent); color: #fff; }
-  .btn-sm { padding: 5px 9px; font-size: 0.72rem; width: auto; border-radius: 6px; margin-top: 0; }
+  .btn-warning { background: #0284c7; color: #fff; }
+  .btn-sm { padding: 5px 9px; font-size: 0.74rem; width: auto; border-radius: 6px; margin-top: 0; }
   .btn-danger { background: var(--danger); color: #fff; }
 
   /* Stats Row */
@@ -208,8 +220,8 @@
     border-radius: 11px;
     text-align: center;
   }
-  .stat-box small { font-size: 0.68rem; color: var(--muted); display: block; }
-  .stat-box strong { font-size: 0.92rem; color: var(--primary); font-weight: 800; }
+  .stat-box small { font-size: 0.7rem; color: var(--muted); display: block; }
+  .stat-box strong { font-size: 0.94rem; color: var(--primary); font-weight: 800; }
 
   /* Progress Bar */
   .progress-wrap { width: 100%; height: 8px; background: var(--border); border-radius: 6px; overflow: hidden; margin: 6px 0; }
@@ -218,19 +230,19 @@
   /* Project Card */
   .project-card {
     border: 1px solid var(--border);
-    border-right: 5px solid var(--accent);
+    border-inline-start: 5px solid var(--accent);
     border-radius: 12px;
     padding: 12px;
     margin-bottom: 10px;
     background: var(--bg);
   }
   .project-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 6px; margin-bottom: 6px; }
-  .project-title { font-weight: 800; font-size: 0.92rem; }
-  .project-meta { font-size: 0.75rem; color: var(--muted); margin-bottom: 6px; line-height: 1.5; }
+  .project-title { font-weight: 800; font-size: 0.94rem; }
+  .project-meta { font-size: 0.78rem; color: var(--muted); margin-bottom: 6px; line-height: 1.5; }
   .badge {
     padding: 2px 7px;
     border-radius: 6px;
-    font-size: 0.68rem;
+    font-size: 0.7rem;
     font-weight: 700;
     background: rgba(15, 76, 129, 0.14);
     color: var(--primary);
@@ -238,7 +250,7 @@
     margin: 2px;
   }
 
-  /* Responsive Worker Cards & Table */
+  /* Worker Card & Compact Table Mode */
   .worker-item {
     background: var(--bg);
     border: 1px solid var(--border);
@@ -247,17 +259,22 @@
     margin-bottom: 8px;
   }
   .worker-top { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); padding-bottom: 6px; margin-bottom: 6px; }
-  .worker-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; font-size: 0.75rem; }
+  .worker-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; font-size: 0.76rem; }
   .worker-cell { background: var(--card); padding: 5px; border-radius: 6px; text-align: center; border: 1px solid var(--border); }
-  .worker-cell small { display: block; color: var(--muted); font-size: 0.65rem; }
+  .worker-cell small { display: block; color: var(--muted); font-size: 0.68rem; }
+
+  .compact-table { width: 100%; border-collapse: collapse; font-size: 0.76rem; }
+  .compact-table th { background: var(--primary); color: #fff; padding: 8px 6px; text-align: start; }
+  [data-theme="dark"] .compact-table th, [data-theme="gold"] .compact-table th, [data-theme="blueprint"] .compact-table th { color: #0b1120; }
+  .compact-table td { padding: 8px 6px; border-bottom: 1px solid var(--border); }
 
   /* Formulas & Results */
   .formula-box {
     background: var(--bg);
-    border-right: 4px solid var(--primary);
+    border-inline-start: 4px solid var(--primary);
     padding: 9px;
     border-radius: 8px;
-    font-size: 0.76rem;
+    font-size: 0.78rem;
     margin-bottom: 10px;
     color: var(--muted);
     line-height: 1.5;
@@ -269,7 +286,7 @@
     padding: 11px;
     border-radius: 10px;
     margin-top: 10px;
-    font-size: 0.84rem;
+    font-size: 0.85rem;
     line-height: 1.6;
     display: none;
   }
@@ -282,7 +299,7 @@
     background: var(--bg);
     border: 1px solid var(--border);
     color: var(--text);
-    font-size: 0.74rem;
+    font-size: 0.76rem;
     font-weight: 700;
     cursor: pointer;
   }
@@ -302,7 +319,7 @@
     margin: 8px 0;
     border: 2px solid #2563eb;
   }
-  .specs-list { display: grid; grid-template-columns: 1fr 1fr; gap: 5px; font-size: 0.74rem; margin-top: 6px; }
+  .specs-list { display: grid; grid-template-columns: 1fr 1fr; gap: 5px; font-size: 0.76rem; margin-top: 6px; }
   .spec-item { background: var(--card); padding: 5px 7px; border-radius: 6px; border: 1px solid var(--border); }
 
   /* Checklist */
@@ -315,9 +332,19 @@
     border: 1px solid var(--border);
     border-radius: 8px;
     margin-bottom: 6px;
-    font-size: 0.8rem;
+    font-size: 0.82rem;
   }
   .check-item input[type="checkbox"] { width: 18px; height: 18px; accent-color: var(--success); }
+
+  /* Settings Grid */
+  .settings-group {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 12px;
+    margin-bottom: 12px;
+  }
+  .settings-group h4 { font-size: 0.88rem; color: var(--primary); margin-bottom: 8px; }
 
   @media print {
     header, .nav-tabs, .no-print { display: none !important; }
@@ -332,51 +359,44 @@
 <header>
   <div class="top-bar">
     <div class="logo">
-      <h1>🏛️ المهندس الشامل Pro</h1>
-      <span>المقاولات • اليوميات • التسعير • المعادلات • المخططات</span>
+      <h1 data-i18n="appTitle">🏛️ المهندس الشامل Pro</h1>
+      <span data-i18n="appSub">المقاولات • اليوميات • التسعير • المعادلات • المخططات</span>
     </div>
-    <div class="header-controls">
-      <select class="mini-select" onchange="changeTheme(this.value)">
-        <option value="light">☀️ نهاري</option>
-        <option value="dark">🌙 ليلي</option>
-        <option value="blueprint">📐 مخطط أزرق</option>
-        <option value="gold">👑 ذهبي ملكي</option>
-      </select>
-      <select class="mini-select" onchange="changeFont(this.value)">
-        <option value="'Cairo', sans-serif">خط القاهرة</option>
-        <option value="'Tajawal', sans-serif">خط تجوال</option>
-        <option value="'Almarai', sans-serif">خط المراعي</option>
-        <option value="'Changa', sans-serif">خط تشانغا</option>
-      </select>
+    <div class="header-quick">
+      <button class="icon-btn" onclick="switchTab('settings', document.getElementById('tabSettingsBtn'))">⚙️ <span data-i18n="settingsShort">الإعدادات</span></button>
       <button class="icon-btn" onclick="window.print()">🖨️ PDF</button>
     </div>
   </div>
 </header>
 
 <div class="nav-tabs">
-  <button class="tab-btn active" onclick="switchTab('projects', this)">🏗️ شغلي جوّا إيدي</button>
-  <button class="tab-btn" onclick="switchTab('workers', this)">👷 اليوميات والكادر</button>
-  <button class="tab-btn" onclick="switchTab('pricing', this)">💰 تسعير البناء</button>
-  <button class="tab-btn" onclick="switchTab('calc', this)">📐 الحاسبات الهندسية</button>
-  <button class="tab-btn" onclick="switchTab('designs', this)">🗺️ موسوعة التصاميم</button>
-  <button class="tab-btn" onclick="switchTab('checklist', this)">✅ استلام الأعمال</button>
+  <button class="tab-btn active" onclick="switchTab('projects', this)" data-i18n="tabProjects">🏗️ شغلي جوّا إيدي</button>
+  <button class="tab-btn" onclick="switchTab('workers', this)" data-i18n="tabWorkers">👷 اليوميات والكادر</button>
+  <button class="tab-btn" onclick="switchTab('pricing', this)" data-i18n="tabPricing">💰 تسعير البناء</button>
+  <button class="tab-btn" onclick="switchTab('calc', this)" data-i18n="tabCalc">📐 الحاسبات</button>
+  <button class="tab-btn" onclick="switchTab('designs', this)" data-i18n="tabDesigns">🗺️ التصاميم</button>
+  <button class="tab-btn" id="tabSettingsBtn" onclick="switchTab('settings', this)" data-i18n="tabSettings">⚙️ الإعدادات</button>
 </div>
 
 <div class="container">
 
-  <!-- ==================== 1. شغلي جوّا إيدي (المشاريع والدفعات) ==================== -->
+  <!-- ==================== 1. شغلي جوّا إيدي (المشاريع + التعديل) ==================== -->
   <div id="projects" class="section active">
     <div class="stats-row">
-      <div class="stat-box"><small>المشاريع النشطة</small><strong id="statProjCount">0</strong></div>
-      <div class="stat-box"><small>إجمالي العقود</small><strong id="statProjBudget">0</strong></div>
-      <div class="stat-box"><small>المتبقي بذمة الزبائن</small><strong id="statProjRem" style="color:var(--accent)">0</strong></div>
+      <div class="stat-box"><small data-i18n="statActiveProj">المشاريع النشطة</small><strong id="statProjCount">0</strong></div>
+      <div class="stat-box"><small data-i18n="statTotalContracts">إجمالي العقود</small><strong id="statProjBudget">0</strong></div>
+      <div class="stat-box"><small data-i18n="statRemaining">المتبقي بذمة الزبائن</small><strong id="statProjRem" style="color:var(--accent)">0</strong></div>
     </div>
 
-    <div class="card no-print">
-      <div class="card-title">➕ إضافة مشروع جديد وتفاصيله</div>
+    <div class="card no-print" id="projectFormCard">
+      <div class="card-title">
+        <span id="projFormTitle" data-i18n="addProjTitle">➕ إضافة مشروع جديد وتفاصيله</span>
+        <button class="btn btn-sm btn-danger" id="cancelEditProjBtn" style="display:none;" onclick="resetProjectForm()" data-i18n="cancelEdit">إلغاء التعديل</button>
+      </div>
+      <input type="hidden" id="editProjId" value="">
       <div class="form-grid">
         <div class="form-group">
-          <label>نوع العقار / المشروع</label>
+          <label data-i18n="lblProjType">نوع العقار / المشروع</label>
           <select id="projType">
             <option value="بيت سكني">🏠 بيت سكني</option>
             <option value="عمارة سكنية / تجارية">🏢 عمارة سكنية / تجارية</option>
@@ -387,27 +407,27 @@
           </select>
         </div>
         <div class="form-group">
-          <label>اسم المشروع أو الزبون</label>
-          <input type="text" id="projName" placeholder="مثلاً: بيت أبو حسين - كركوك">
+          <label data-i18n="lblProjName">اسم المشروع أو الزبون</label>
+          <input type="text" id="projName" placeholder="مثلاً: بيت أبو حسين">
         </div>
         <div class="form-group">
-          <label>المساحة (م²)</label>
+          <label data-i18n="lblArea">المساحة (م²)</label>
           <input type="number" id="projArea" placeholder="200">
         </div>
         <div class="form-group">
-          <label>عدد الطوابق</label>
+          <label data-i18n="lblFloors">عدد الطوابق</label>
           <input type="number" id="projFloors" value="1" min="1">
         </div>
         <div class="form-group">
-          <label>قيمة العقد الكلية</label>
+          <label data-i18n="lblBudget">قيمة العقد الكلية</label>
           <input type="number" id="projBudget" placeholder="50000">
         </div>
         <div class="form-group">
-          <label>الدفعة المستلمة (الواصل)</label>
+          <label data-i18n="lblPaid">الدفعة المستلمة (الواصل)</label>
           <input type="number" id="projPaid" value="0">
         </div>
         <div class="form-group full">
-          <label>مرحلة التنفيذ الحالية</label>
+          <label data-i18n="lblStage">مرحلة التنفيذ الحالية</label>
           <select id="projStage">
             <option value="1">1. حفريات وأساسات (20%)</option>
             <option value="2">2. هيكل وبناء طابوق/بلوك (40%)</option>
@@ -417,7 +437,7 @@
           </select>
         </div>
         <div class="form-group full">
-          <label>إضافة تفاصيل اختيارية للمشروع (اضغط للاختيار):</label>
+          <label data-i18n="lblQuickTags">تفاصيل اختيارية للمشروع (اضغط للاختيار أو الإلغاء):</label>
           <div class="chips-box" id="quickTags">
             <span class="chip" onclick="toggleChip(this)">غرفة معيشة</span>
             <span class="chip" onclick="toggleChip(this)">استقبال ضيوف</span>
@@ -432,59 +452,62 @@
           </div>
         </div>
         <div class="form-group full">
-          <label>ملاحظات إضافية / تقسيمات</label>
-          <input type="text" id="projNotes" placeholder="مثلاً: واجهة 10م × نزال 20م - بناء درجة أولى">
+          <label data-i18n="lblNotes">ملاحظات إضافية / تقسيمات</label>
+          <input type="text" id="projNotes" placeholder="...">
         </div>
       </div>
-      <button class="btn btn-primary" onclick="addProject()">💾 حفظ المشروع في قائمتي</button>
+      <button class="btn btn-primary" id="saveProjBtn" onclick="saveProjectForm()" data-i18n="btnSaveProj">💾 حفظ المشروع في قائمتي</button>
     </div>
 
     <div class="card">
-      <div class="card-title">📋 مشاريعي الحالية (شغلي جوّا إيدي)</div>
+      <div class="card-title"><span data-i18n="myProjectsList">📋 مشاريعي الحالية (شغلي جوّا إيدي)</span></div>
       <div id="projectsList"></div>
     </div>
   </div>
 
-  <!-- ==================== 2. يوميات العمال والمهندسين والإداريين ==================== -->
+  <!-- ==================== 2. يوميات العمال والمهندسين (+ التعديل) ==================== -->
   <div id="workers" class="section">
     <div class="stats-row">
-      <div class="stat-box"><small>عدد الكادر</small><strong id="statWorkerCount">0</strong></div>
-      <div class="stat-box"><small>مجموع الأيام</small><strong id="statWorkerDays">0 يوم</strong></div>
-      <div class="stat-box"><small>صافي المستحقات</small><strong id="statWorkerTotal">0</strong></div>
+      <div class="stat-box"><small data-i18n="statStaffCount">عدد الكادر</small><strong id="statWorkerCount">0</strong></div>
+      <div class="stat-box"><small data-i18n="statTotalDays">مجموع الأيام</small><strong id="statWorkerDays">0</strong></div>
+      <div class="stat-box"><small data-i18n="statNetPay">صافي المستحقات</small><strong id="statWorkerTotal">0</strong></div>
     </div>
 
-    <div class="card no-print">
-      <div class="card-title">👷 إضافة يومية عامل / مهندس / إداري</div>
+    <div class="card no-print" id="workerFormCard">
+      <div class="card-title">
+        <span id="workerFormTitle" data-i18n="addWorkerTitle">👷 إضافة يومية عامل / مهندس / إداري</span>
+        <button class="btn btn-sm btn-danger" id="cancelEditWorkerBtn" style="display:none;" onclick="resetWorkerForm()" data-i18n="cancelEdit">إلغاء التعديل</button>
+      </div>
+      <input type="hidden" id="editWorkerId" value="">
       <div class="form-grid">
         <div class="form-group full">
-          <label>المشروع المخصص له العمل</label>
+          <label data-i18n="lblAssignedProj">المشروع المخصص له العمل</label>
           <select id="workerProject"></select>
         </div>
         <div class="form-group">
-          <label>اسم العامل / المهندس</label>
+          <label data-i18n="lblWorkerName">اسم العامل / المهندس</label>
           <input type="text" id="workerName" placeholder="مثلاً: م. سيف / الخلفة عباس">
         </div>
         <div class="form-group">
-          <label>التخصص الوظيفي (كل التخصصات العالمية)</label>
+          <label data-i18n="lblRole">التخصص الوظيفي</label>
           <select id="workerRole">
-            <optgroup label="🎓 الكادر الهندسي والاستشاري">
+            <optgroup label="🎓 الكادر الهندسي">
               <option value="مهندس مدني (إنشائي)">مهندس مدني (إنشائي)</option>
               <option value="مهندس معماري (تصميم)">مهندس معماري (تصميم)</option>
               <option value="مهندس كهرباء">مهندس كهرباء</option>
               <option value="مهندس ميكانيك وتكييف">مهندس ميكانيك وتكييف</option>
-              <option value="مهندس مساحة (طبوغرافي)">مهندس مساحة (طبوغرافي)</option>
+              <option value="مهندس مساحة">مهندس مساحة</option>
               <option value="مهندس ديكور داخلي">مهندس ديكور داخلي</option>
               <option value="مهندس حاسبات كميات">مهندس حاسبات كميات</option>
-              <option value="مهندس سلامة مهنية HSE">مهندس سلامة مهنية HSE</option>
             </optgroup>
-            <optgroup label="💼 الكادر الإداري والمالي">
+            <optgroup label="💼 الكادر الإداري">
               <option value="مدير مشروع">مدير مشروع</option>
               <option value="محاسب موقع">محاسب موقع</option>
               <option value="أمين مخزن ومواد">أمين مخزن ومواد</option>
               <option value="مراقب عمال (فورمن)">مراقب عمال (فورمن)</option>
               <option value="إداري / سكرتير">إداري / سكرتير</option>
             </optgroup>
-            <optgroup label="🛠️ الخلفات والحرفيون والعمال">
+            <optgroup label="🛠️ الحرفيون والعمال">
               <option value="خلفة بناء (طابوق / بلوك)">خلفة بناء (طابوق / بلوك)</option>
               <option value="حداد تسليح">حداد تسليح</option>
               <option value="نجار قالب خشبي">نجار قالب خشبي</option>
@@ -494,39 +517,39 @@
               <option value="سباك (تأسيسات صحية)">سباك (تأسيسات صحية)</option>
               <option value="صباغ وديكور جبس بورد">صباغ وديكور جبس بورد</option>
               <option value="حداد ألمنيوم و PVC">حداد ألمنيوم و PVC</option>
-              <option value="سائق آليات (حفارة / كرين)">سائق آليات (حفارة / كرين)</option>
+              <option value="سائق آليات">سائق آليات</option>
               <option value="عامل خدمة / عمالة يومية">عامل خدمة / عمالة يومية</option>
             </optgroup>
           </select>
         </div>
         <div class="form-group">
-          <label>أجر اليومية الواحدة</label>
+          <label data-i18n="lblDailyWage">أجر اليومية الواحدة</label>
           <input type="number" id="workerDailyWage" placeholder="35000">
         </div>
         <div class="form-group">
-          <label>عدد أيام الدوام (مثلاً 30 يوم)</label>
+          <label data-i18n="lblWorkDays">عدد أيام الدوام (مثلاً 30)</label>
           <input type="number" id="workerDays" value="30" step="0.5">
         </div>
         <div class="form-group">
-          <label>ساعات العمل الإضافي (Overtime)</label>
+          <label data-i18n="lblOtHours">ساعات العمل الإضافي</label>
           <input type="number" id="workerOvertimeHrs" value="0" step="0.5">
         </div>
         <div class="form-group">
-          <label>سعر الساعة الإضافية</label>
+          <label data-i18n="lblOtRate">سعر الساعة الإضافية</label>
           <input type="number" id="workerOvertimeRate" value="5000">
         </div>
         <div class="form-group full">
-          <label>السُلف أو الخصومات المستلمة مسبقاً (تُخصم من الصافي)</label>
+          <label data-i18n="lblAdvance">السُلف أو الخصومات المستلمة مسبقاً</label>
           <input type="number" id="workerAdvance" value="0">
         </div>
       </div>
-      <button class="btn btn-success" onclick="addWorker()">➕ تسجيل وحساب المجموع الكلي</button>
+      <button class="btn btn-success" id="saveWorkerBtn" onclick="saveWorkerForm()" data-i18n="btnSaveWorker">➕ تسجيل وحساب المجموع الكلي</button>
     </div>
 
     <div class="card">
       <div class="card-title">
-        <span>📊 سجل اليوميات والمستحقات الكلية</span>
-        <select id="filterWorkerProject" onchange="renderWorkers()" style="width:auto; padding:4px 8px; font-size:0.74rem;">
+        <span data-i18n="workersLogTitle">📊 سجل اليوميات والمستحقات الكلية</span>
+        <select id="filterWorkerProject" onchange="renderWorkers()" style="width:auto; padding:4px 8px; font-size:0.75rem;">
           <option value="ALL">كل المشاريع</option>
         </select>
       </div>
@@ -534,178 +557,762 @@
     </div>
   </div>
 
-  <!-- ==================== 3. تسعير المواد وتخمين كلفة البناء ==================== -->
+  <!-- ==================== 3. تسعير البناء والبورصة ==================== -->
   <div id="pricing" class="section">
     <div class="card">
-      <div class="card-title">🧱 بورصة أسعار المواد الإنشائية (عدّل حسب سعر السوق)</div>
+      <div class="card-title" data-i18n="marketPricesTitle">🧱 بورصة أسعار المواد الإنشائية (قابلة للتعديل)</div>
       <div class="form-grid">
-        <div class="form-group"><label>سعر طن حديد التسليح</label><input type="number" id="pSteel" value="950000" onchange="savePrices()"></div>
-        <div class="form-group"><label>سعر طن الأسمنت (20 كيس)</label><input type="number" id="pCement" value="135000" onchange="savePrices()"></div>
-        <div class="form-group"><label>سعر ألف طابوقة جمهوري</label><input type="number" id="pBrick" value="220000" onchange="savePrices()"></div>
-        <div class="form-group"><label>سعر متر الرمل المغسول</label><input type="number" id="pSand" value="22000" onchange="savePrices()"></div>
-        <div class="form-group"><label>سعر متر الحصى (الكرفت)</label><input type="number" id="pGravel" value="25000" onchange="savePrices()"></div>
-        <div class="form-group"><label>سعر متر السيراميك والتركيب</label><input type="number" id="pTile" value="25000" onchange="savePrices()"></div>
+        <div class="form-group"><label data-i18n="lblSteelPrice">سعر طن حديد التسليح</label><input type="number" id="pSteel" value="950000" onchange="savePrices()"></div>
+        <div class="form-group"><label data-i18n="lblCementPrice">سعر طن الأسمنت (20 كيس)</label><input type="number" id="pCement" value="135000" onchange="savePrices()"></div>
+        <div class="form-group"><label data-i18n="lblBrickPrice">سعر ألف طابوقة</label><input type="number" id="pBrick" value="220000" onchange="savePrices()"></div>
+        <div class="form-group"><label data-i18n="lblSandPrice">سعر متر الرمل المغسول</label><input type="number" id="pSand" value="22000" onchange="savePrices()"></div>
+        <div class="form-group"><label data-i18n="lblGravelPrice">سعر متر الحصى</label><input type="number" id="pGravel" value="25000" onchange="savePrices()"></div>
+        <div class="form-group"><label data-i18n="lblTilePrice">سعر متر السيراميك والتركيب</label><input type="number" id="pTile" value="25000" onchange="savePrices()"></div>
       </div>
     </div>
 
     <div class="card">
-      <div class="card-title">🏠 حاسبة التخمين الكامل لكلفة بناء بيت بالمتر المربع</div>
-      <div class="formula-box">
-        تقوم هذه الحاسبة بتقدير الكميات الهندسية التقريبية لبناء دار سكنية (أساسات + هيكل + إنهاءات) بناءً على المساحة وعدد الطوابق والأسعار أعلاه.
-      </div>
+      <div class="card-title" data-i18n="estHouseTitle">🏠 حاسبة التخمين الكامل لكلفة بناء بيت</div>
       <div class="form-grid">
-        <div class="form-group"><label>مساحة البناء للطابق الواحد (م²)</label><input type="number" id="estArea" value="150"></div>
-        <div class="form-group"><label>عدد الطوابق</label><input type="number" id="estFloors" value="2" min="1"></div>
+        <div class="form-group"><label data-i18n="lblEstArea">مساحة الطابق الواحد (م²)</label><input type="number" id="estArea" value="150"></div>
+        <div class="form-group"><label data-i18n="lblFloors">عدد الطوابق</label><input type="number" id="estFloors" value="2" min="1"></div>
         <div class="form-group full">
-          <label>نوع المقاولة / مستوى التشطيب</label>
+          <label data-i18n="lblFinishLevel">مستوى التشطيب والمقاولة</label>
           <select id="estLevel">
-            <option value="skeleton">هيكل أسود فقط (أساسات + أعمدة + سقوف + بناء طابوق)</option>
-            <option value="standard">تسليم مفتاح — درجة ثانية (مواصفات جيدة واقتصادية)</option>
-            <option value="vip">تسليم مفتاح — درجة أولى VIP (ديكورات + مرمر + واجهة حديثة)</option>
+            <option value="skeleton">هيكل أسود فقط (أساسات + أعمدة + سقوف + بناء)</option>
+            <option value="standard">تسليم مفتاح — درجة ثانية (اقتصادي)</option>
+            <option value="vip">تسليم مفتاح — درجة أولى VIP</option>
           </select>
         </div>
       </div>
-      <button class="btn btn-accent" onclick="estimateHouseCost()">💰 احسب الكلفة والكميات التقديرية</button>
+      <button class="btn btn-accent" onclick="estimateHouseCost()" data-i18n="btnCalcEst">💰 احسب الكلفة والكميات التقديرية</button>
       <div class="calc-result" id="resEstimate"></div>
     </div>
   </div>
 
   <!-- ==================== 4. الحاسبات والمعادلات الهندسية ==================== -->
   <div id="calc" class="section">
-    <!-- حاسبة الخرسانة -->
     <div class="card">
-      <div class="card-title">🧱 1. معادلة الخرسانة المسلحة (أسمنت + رمل + حصى)</div>
-      <div class="formula-box">
-        الحجم الرطب = الطول × العرض × السُمك | الحجم الجاف = الحجم الرطب × 1.54
-      </div>
+      <div class="card-title" data-i18n="calcConcreteTitle">🧱 1. معادلة الخرسانة المسلحة</div>
       <div class="form-grid">
-        <div class="form-group"><label>الطول (م)</label><input type="number" id="cLen" placeholder="10"></div>
-        <div class="form-group"><label>العرض (م)</label><input type="number" id="cWid" placeholder="10"></div>
-        <div class="form-group"><label>السُمك (م)</label><input type="number" id="cDep" placeholder="0.20" step="0.01"></div>
+        <div class="form-group"><label data-i18n="lblLength">الطول (م)</label><input type="number" id="cLen" placeholder="10"></div>
+        <div class="form-group"><label data-i18n="lblWidth">العرض (م)</label><input type="number" id="cWid" placeholder="10"></div>
+        <div class="form-group"><label data-i18n="lblDepth">السُمك (م)</label><input type="number" id="cDep" placeholder="0.20" step="0.01"></div>
         <div class="form-group">
-          <label>نسبة الخلط</label>
+          <label data-i18n="lblMixRatio">نسبة الخلط</label>
           <select id="cMix">
             <option value="1:2:4">1 : 2 : 4 (سقوف وأساسات)</option>
             <option value="1:1.5:3">1 : 1.5 : 3 (أعمدة وجسور)</option>
           </select>
         </div>
       </div>
-      <button class="btn btn-primary" onclick="calcConcrete()">احسب الكميات والتكلفة</button>
+      <button class="btn btn-primary" onclick="calcConcrete()" data-i18n="btnCalculate">احسب الآن</button>
       <div class="calc-result" id="resConcrete"></div>
     </div>
 
-    <!-- حاسبة الطابوق واللبخ -->
     <div class="card">
-      <div class="card-title">🏗️ 2. معادلة الطابوق / البلوك واللبخ</div>
+      <div class="card-title" data-i18n="calcWallTitle">🏗️ 2. معادلة الطابوق / البلوك واللبخ</div>
       <div class="form-grid">
-        <div class="form-group"><label>طول الجدار الكلي (م)</label><input type="number" id="wLen" placeholder="25"></div>
-        <div class="form-group"><label>ارتفاع الجدار (م)</label><input type="number" id="wHei" placeholder="3"></div>
-        <div class="form-group"><label>مساحة الأبواب والشبابيك (م²)</label><input type="number" id="wOpen" value="5"></div>
+        <div class="form-group"><label data-i18n="lblWallLen">طول الجدار الكلي (م)</label><input type="number" id="wLen" placeholder="25"></div>
+        <div class="form-group"><label data-i18n="lblHeight">ارتفاع الجدار (م)</label><input type="number" id="wHei" placeholder="3"></div>
+        <div class="form-group"><label data-i18n="lblOpenings">مساحة الأبواب والشبابيك (م²)</label><input type="number" id="wOpen" value="5"></div>
         <div class="form-group">
-          <label>نوع البناء</label>
+          <label data-i18n="lblBrickType">نوع البناء</label>
           <select id="wType">
-            <option value="brick">طابوق جمهوري (58 طابوقة/م²)</option>
-            <option value="block">بلوك كونكريتي (13 بلوكة/م²)</option>
-            <option value="thermo">ثرمستون عازل (8.5 قطعة/م²)</option>
+            <option value="brick">طابوق جمهوري (58/م²)</option>
+            <option value="block">بلوك كونكريتي (13/م²)</option>
+            <option value="thermo">ثرمستون عازل (8.5/م²)</option>
           </select>
         </div>
       </div>
-      <button class="btn btn-primary" onclick="calcWall()">احسب الطابوق والأسمنت</button>
+      <button class="btn btn-primary" onclick="calcWall()" data-i18n="btnCalculate">احسب الآن</button>
       <div class="calc-result" id="resWall"></div>
     </div>
 
-    <!-- حاسبة السيراميك والحديد -->
     <div class="card">
-      <div class="card-title">📐 3. معادلة السيراميك + وزن حديد التسليح</div>
+      <div class="card-title" data-i18n="calcTileRebarTitle">📐 3. معادلة السيراميك + وزن حديد التسليح</div>
       <div class="form-grid">
-        <div class="form-group"><label>المساحة الصافية (م²)</label><input type="number" id="tArea" placeholder="60"></div>
-        <div class="form-group"><label>متر الكرتون الواحد (م²)</label><input type="number" id="tBox" value="1.44" step="0.01"></div>
-        <div class="form-group"><label>قطر شيش الحديد (ملم)</label><input type="number" id="rebarDia" value="16"></div>
-        <div class="form-group"><label>طول الحديد الكلي (متر)</label><input type="number" id="rebarLen" value="120"></div>
+        <div class="form-group"><label data-i18n="lblArea">المساحة الصافية (م²)</label><input type="number" id="tArea" placeholder="60"></div>
+        <div class="form-group"><label data-i18n="lblBoxArea">متر الكرتون الواحد (م²)</label><input type="number" id="tBox" value="1.44" step="0.01"></div>
+        <div class="form-group"><label data-i18n="lblRebarDia">قطر شيش الحديد (ملم)</label><input type="number" id="rebarDia" value="16"></div>
+        <div class="form-group"><label data-i18n="lblRebarLen">طول الحديد الكلي (متر)</label><input type="number" id="rebarLen" value="120"></div>
       </div>
-      <button class="btn btn-primary" onclick="calcTilesRebar()">احسب السيراميك ووزن الحديد</button>
+      <button class="btn btn-primary" onclick="calcTilesRebar()" data-i18n="btnCalculate">احسب الآن</button>
       <div class="calc-result" id="resTiles"></div>
     </div>
 
-    <!-- حاسبة التكييف والصبغ -->
     <div class="card">
-      <div class="card-title">❄️ 4. حاسبة التكييف (طن تبريد) وكمية الصبغ</div>
-      <div class="formula-box">
-        معادلة التبريد: (الطول × العرض × الارتفاع × 300) ÷ 12000 = طن التبريد المطلوب للغرفة أو القاعة.
-      </div>
+      <div class="card-title" data-i18n="calcHvacTitle">❄️ 4. حاسبة التكييف (طن تبريد) والصبغ</div>
       <div class="form-grid">
-        <div class="form-group"><label>طول الغرفة / القاعة (م)</label><input type="number" id="rLen" placeholder="6"></div>
-        <div class="form-group"><label>عرض الغرفة / القاعة (م)</label><input type="number" id="rWid" placeholder="4"></div>
-        <div class="form-group"><label>ارتفاع السقف (م)</label><input type="number" id="rHei" value="3"></div>
+        <div class="form-group"><label data-i18n="lblLength">الطول (م)</label><input type="number" id="rLen" placeholder="6"></div>
+        <div class="form-group"><label data-i18n="lblWidth">العرض (م)</label><input type="number" id="rWid" placeholder="4"></div>
+        <div class="form-group"><label data-i18n="lblHeight">الارتفاع (م)</label><input type="number" id="rHei" value="3"></div>
         <div class="form-group">
-          <label>طبيعة المكان</label>
+          <label data-i18n="lblRoomType">طبيعة المكان</label>
           <select id="rSun">
             <option value="1">غرفة سكنية اعتيادية</option>
             <option value="1.25">واجهة زجاج / مطعم / كوفي شوب</option>
           </select>
         </div>
       </div>
-      <button class="btn btn-success" onclick="calcHvacPaint()">احسب التكييف المطلوب وغالونات الصبغ</button>
+      <button class="btn btn-success" onclick="calcHvacPaint()" data-i18n="btnCalculate">احسب الآن</button>
       <div class="calc-result" id="resHvac"></div>
     </div>
   </div>
 
   <!-- ==================== 5. موسوعة التصاميم والمخططات الهندسية ==================== -->
   <div id="designs" class="section">
-    <!-- حاسبة الجدوى العقارية -->
     <div class="card">
-      <div class="card-title">📈 حاسبة الجدوى الاستثمارية والعقارية</div>
+      <div class="card-title" data-i18n="realEstateTitle">📈 حاسبة الجدوى الاستثمارية والعقارية</div>
       <div class="form-grid">
-        <div class="form-group"><label>سعر شراء الأرض + البناء الكلي</label><input type="number" id="invCost" placeholder="150000000"></div>
-        <div class="form-group"><label>سعر البيع المتوقع أو الإيجار السنوي</label><input type="number" id="invReturn" placeholder="185000000"></div>
+        <div class="form-group"><label data-i18n="lblInvCost">تكلفة الأرض + البناء الكلي</label><input type="number" id="invCost" placeholder="150000000"></div>
+        <div class="form-group"><label data-i18n="lblInvRet">سعر البيع المتوقع أو العائد</label><input type="number" id="invReturn" placeholder="185000000"></div>
       </div>
-      <button class="btn btn-accent" onclick="calcRealEstate()">احسب صافي الربح ونسبة العائد</button>
+      <button class="btn btn-accent" onclick="calcRealEstate()" data-i18n="btnCalculate">احسب الآن</button>
       <div class="calc-result" id="resInvest"></div>
     </div>
 
     <div class="card">
-      <div class="card-title">🗺️ موسوعة المخططات الهندسية (2D Blueprints)</div>
+      <div class="card-title" data-i18n="designsEncyclopedia">🗺️ موسوعة المخططات الهندسية (2D Blueprints)</div>
       <div class="design-filter">
-        <button class="filter-pill active" onclick="filterDesigns('ALL', this)">الكل (12 مخطط)</button>
-        <button class="filter-pill" onclick="filterDesigns('houses', this)">🏠 البيوت (100م - 1400م)</button>
-        <button class="filter-pill" onclick="filterDesigns('commercial', this)">☕ كوفي ومطاعم وعطور</button>
-        <button class="filter-pill" onclick="filterDesigns('public', this)">🏥 مولات ومستشفيات وحكومية</button>
+        <button class="filter-pill active" onclick="filterDesigns('ALL', this)" data-i18n="filterAll">الكل</button>
+        <button class="filter-pill" onclick="filterDesigns('houses', this)" data-i18n="filterHouses">🏠 البيوت (100م - 1400م)</button>
+        <button class="filter-pill" onclick="filterDesigns('commercial', this)" data-i18n="filterComm">☕ كوفي ومطاعم وعطور</button>
+        <button class="filter-pill" onclick="filterDesigns('public', this)" data-i18n="filterPublic">🏥 مولات ومستشفيات وحكومية</button>
       </div>
       <div id="designsContainer"></div>
     </div>
   </div>
 
-  <!-- ==================== 6. قوائم الفحص واستلام الأعمال الهندسية ==================== -->
-  <div id="checklist" class="section">
+  <!-- ==================== 6. قسم الإعدادات الموحد الشامل ==================== -->
+  <div id="settings" class="section">
     <div class="card">
-      <div class="card-title">✅ دليل المهندس لاستلام الأعمال في الموقع</div>
-      <p style="font-size:0.78rem; color:var(--muted); margin-bottom:10px;">
-        استخدم هذه القائمة للتأكد من مطابقة العمل للمواصفات الهندسية قبل صرف مستحقات الخلفات أو استلام المرحلة:
-      </p>
+      <div class="card-title" data-i18n="settingsHeader">⚙️ الإعدادات العامة والمظهر واللغات</div>
 
-      <strong style="font-size:0.85rem; color:var(--primary); display:block; margin:8px 0;">1. مرحلة الأساسات والصب الخرساني:</strong>
-      <label class="check-item"><input type="checkbox"> التأكد من نظافة الحفريات ورشها بالماء وحدل التربة (السبيس).</label>
-      <label class="check-item"><input type="checkbox"> وضع بسكويت خرساني (Cover) بسمك 5 سم تحت حديد الأساسات.</label>
-      <label class="check-item"><input type="checkbox"> استخدام الهزاز الميكانيكي (Vibrator) أثناء الصب لمنع التعشيش.</label>
-      <label class="check-item"><input type="checkbox"> رش الخرسانة بالماء مرتين يومياً لمدة 7 أيام متواصلة.</label>
+      <!-- 1. إعدادات اللغة -->
+      <div class="settings-group">
+        <h4 data-i18n="setLangTitle">🌐 لغة التطبيق (لغات العراق والعالم)</h4>
+        <div class="form-group">
+          <label data-i18n="setLangDesc">اختر اللغة ليتم ترجمة كافة القوائم والأزرار والبيانات فوراً:</label>
+          <select id="appLangSelect" onchange="applyLanguage(this.value)">
+            <option value="ar">🇮🇶 العربية (Arabic)</option>
+            <option value="ku">☀️ الكردية السورانية (کوردی سۆرانی)</option>
+            <option value="badini">🏔️ الكردية البادينية (کوردی بادینی)</option>
+            <option value="tr">🌙 التركمانية (Türkmençe)</option>
+            <option value="en">🌍 الإنجليزية (English)</option>
+          </select>
+        </div>
+      </div>
 
-      <strong style="font-size:0.85rem; color:var(--primary); display:block; margin:12px 0 8px;">2. مرحلة البناء والتأسيسات:</strong>
-      <label class="check-item"><input type="checkbox"> وزن استقامة الجدران بالخيط والشاقول وتعبئة الحلول بالمونة.</label>
-      <label class="check-item"><input type="checkbox"> وضع عازل الرطوبة (اللباد / القير) فوق البتلو قبل بناء الطابوق.</label>
-      <label class="check-item"><input type="checkbox"> فحص أنابيب المجاري والماء الحار/البارد بالضغط قبل الدفن.</label>
-      <label class="check-item"><input type="checkbox"> تثبيت علب الكهرباء على ميزان الماء وارتفاع موحد (110 سم).</label>
+      <!-- 2. إعدادات المظهر والألوان والضوء -->
+      <div class="settings-group">
+        <h4 data-i18n="setThemeTitle">🎨 المظهر والضوء النهاري / الليلي</h4>
+        <div class="form-grid">
+          <div class="form-group">
+            <label data-i18n="lblTheme">نمط الألوان والإضاءة</label>
+            <select id="appThemeSelect" onchange="applyTheme(this.value)">
+              <option value="light">☀️ الضوء النهاري (أبيض ناصع)</option>
+              <option value="dark">🌙 الوضع الليلي (مريح للعين)</option>
+              <option value="blueprint">📐 أزرق المخططات الهندسية</option>
+              <option value="gold">👑 الوضع الذهبي الملكي</option>
+              <option value="emerald">🌿 الأخضر الزمردي</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label data-i18n="lblViewMode">شكل عرض الجداول والبيانات</label>
+            <select id="appViewSelect" onchange="applyViewMode(this.value)">
+              <option value="cards">📱 بطاقات تفصيلية (مناسب للهاتف)</option>
+              <option value="table">📊 جدول هندسي مضغوط (صفوف)</option>
+            </select>
+          </div>
+        </div>
+      </div>
 
-      <strong style="font-size:0.85rem; color:var(--primary); display:block; margin:12px 0 8px;">3. مرحلة الإنهاءات والسيراميك:</strong>
-      <label class="check-item"><input type="checkbox"> فحص ميول أرضيات الحمامات والسطح باتجاه المنهول (البلوعة).</label>
-      <label class="check-item"><input type="checkbox"> طرق بلاط السيراميك للتأكد من عدم وجود فراغات هوائية تحته.</label>
-      <label class="check-item"><input type="checkbox"> فحص قواطع الكهرباء (الجوزات) والأرضي (Earthing).</label>
+      <!-- 3. إعدادات الخطوط -->
+      <div class="settings-group">
+        <h4 data-i18n="setFontTitle">✍️ نوع وحجم الخط</h4>
+        <div class="form-grid">
+          <div class="form-group">
+            <label data-i18n="lblFontFamily">اختر نوع الخط</label>
+            <select id="appFontSelect" onchange="applyFont(this.value)">
+              <option value="'Cairo', sans-serif">خط القاهرة (Cairo - هندسي عصري)</option>
+              <option value="'Tajawal', sans-serif">خط تجوال (Tajawal - ناعم)</option>
+              <option value="'Almarai', sans-serif">خط المراعي (Almarai - واضح)</option>
+              <option value="'IBM Plex Sans Arabic', sans-serif">خط IBM الرسمي</option>
+              <option value="'Noto Kufi Arabic', sans-serif">خط الكوفي الحديث</option>
+              <option value="'Readex Pro', sans-serif">خط ريدكس برو</option>
+              <option value="'Changa', sans-serif">خط تشانغا</option>
+              <option value="'Amiri', serif">خط الأميري الكلاسيكي</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label data-i18n="lblFontSize">حجم الكتابة</label>
+            <select id="appFontSizeSelect" onchange="applyFontSize(this.value)">
+              <option value="13px">صغير (13px)</option>
+              <option value="14px" selected>متوسط قياسي (14px)</option>
+              <option value="16px">كبير واضح (16px)</option>
+              <option value="18px">كبير جداً (18px)</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. قائمة الفحص الهندسي السريعة -->
+      <div class="settings-group">
+        <h4 data-i18n="checklistTitle">✅ قائمة فحص واستلام الأعمال في الموقع</h4>
+        <label class="check-item"><input type="checkbox"> <span data-i18n="chk1">فحص نظافة الحفريات وحدل السبيس ووضع البسكويت الخرساني.</span></label>
+        <label class="check-item"><input type="checkbox"> <span data-i18n="chk2">استخدام الهزاز الميكانيكي أثناء الصب ورش الماء 7 أيام.</span></label>
+        <label class="check-item"><input type="checkbox"> <span data-i18n="chk3">وزن الجدران بالخيط والشاقول وفحص أنابيب الماء بالضغط.</span></label>
+        <label class="check-item"><input type="checkbox"> <span data-i18n="chk4">فحص ميول الحمامات والسطح باتجاه المنهول قبل التسليم.</span></label>
+      </div>
+
+      <!-- 5. النسخ الاحتياطي وإدارة البيانات -->
+      <div class="settings-group">
+        <h4 data-i18n="setBackupTitle">💾 النسخ الاحتياطي وإدارة البيانات</h4>
+        <div class="form-grid">
+          <button class="btn btn-primary" onclick="exportBackup()" data-i18n="btnExport">📤 نسخ البيانات احتياطياً</button>
+          <button class="btn btn-accent" onclick="window.print()" data-i18n="btnPrintAll">🖨️ طباعة / حفظ PDF</button>
+        </div>
+      </div>
     </div>
   </div>
 
 </div>
 
 <script>
-// ==================== البيانات المخزنة ====================
+// ==================== قاموس اللغات الخمس الكامل ====================
+const i18nDict = {
+  ar: {
+    dir: 'rtl',
+    appTitle: '🏛️ المهندس الشامل Pro',
+    appSub: 'المقاولات • اليوميات • التسعير • المعادلات • المخططات',
+    settingsShort: 'الإعدادات',
+    tabProjects: '🏗️ شغلي جوّا إيدي',
+    tabWorkers: '👷 اليوميات والكادر',
+    tabPricing: '💰 تسعير البناء',
+    tabCalc: '📐 الحاسبات',
+    tabDesigns: '🗺️ التصاميم',
+    tabSettings: '⚙️ الإعدادات',
+    statActiveProj: 'المشاريع النشطة',
+    statTotalContracts: 'إجمالي العقود',
+    statRemaining: 'المتبقي بذمة الزبائن',
+    addProjTitle: '➕ إضافة مشروع جديد وتفاصيله',
+    editProjTitle: '✏️ تعديل بيانات المشروع',
+    cancelEdit: 'إلغاء التعديل',
+    lblProjType: 'نوع العقار / المشروع',
+    lblProjName: 'اسم المشروع أو الزبون',
+    lblArea: 'المساحة (م²)',
+    lblFloors: 'عدد الطوابق',
+    lblBudget: 'قيمة العقد الكلية',
+    lblPaid: 'الدفعة المستلمة (الواصل)',
+    lblStage: 'مرحلة التنفيذ الحالية',
+    lblQuickTags: 'تفاصيل اختيارية للمشروع (اضغط للاختيار أو الإلغاء):',
+    lblNotes: 'ملاحظات إضافية / تقسيمات',
+    btnSaveProj: '💾 حفظ المشروع في قائمتي',
+    btnUpdateProj: '✅ حفظ التعديلات على المشروع',
+    myProjectsList: '📋 مشاريعي الحالية (شغلي جوّا إيدي)',
+    statStaffCount: 'عدد الكادر',
+    statTotalDays: 'مجموع الأيام',
+    statNetPay: 'صافي المستحقات',
+    addWorkerTitle: '👷 إضافة يومية عامل / مهندس / إداري',
+    editWorkerTitle: '✏️ تعديل يومية العامل / المهندس',
+    lblAssignedProj: 'المشروع المخصص له العمل',
+    lblWorkerName: 'اسم العامل / المهندس',
+    lblRole: 'التخصص الوظيفي',
+    lblDailyWage: 'أجر اليومية الواحدة',
+    lblWorkDays: 'عدد أيام الدوام (مثلاً 30)',
+    lblOtHours: 'ساعات العمل الإضافي',
+    lblOtRate: 'سعر الساعة الإضافية',
+    lblAdvance: 'السُلف أو الخصومات المستلمة مسبقاً',
+    btnSaveWorker: '➕ تسجيل وحساب المجموع الكلي',
+    btnUpdateWorker: '✅ حفظ تعديلات اليومية',
+    workersLogTitle: '📊 سجل اليوميات والمستحقات الكلية',
+    marketPricesTitle: '🧱 بورصة أسعار المواد الإنشائية (قابلة للتعديل)',
+    lblSteelPrice: 'سعر طن حديد التسليح',
+    lblCementPrice: 'سعر طن الأسمنت (20 كيس)',
+    lblBrickPrice: 'سعر ألف طابوقة',
+    lblSandPrice: 'سعر متر الرمل المغسول',
+    lblGravelPrice: 'سعر متر الحصى',
+    lblTilePrice: 'سعر متر السيراميك والتركيب',
+    estHouseTitle: '🏠 حاسبة التخمين الكامل لكلفة بناء بيت',
+    lblEstArea: 'مساحة الطابق الواحد (م²)',
+    lblFinishLevel: 'مستوى التشطيب والمقاولة',
+    btnCalcEst: '💰 احسب الكلفة والكميات التقديرية',
+    calcConcreteTitle: '🧱 1. معادلة الخرسانة المسلحة',
+    calcWallTitle: '🏗️ 2. معادلة الطابوق / البلوك واللبخ',
+    calcTileRebarTitle: '📐 3. معادلة السيراميك + وزن حديد التسليح',
+    calcHvacTitle: '❄️ 4. حاسبة التكييف (طن تبريد) والصبغ',
+    lblLength: 'الطول (م)',
+    lblWidth: 'العرض (م)',
+    lblDepth: 'السُمك (م)',
+    lblHeight: 'الارتفاع (م)',
+    lblMixRatio: 'نسبة الخلط',
+    lblWallLen: 'طول الجدار الكلي (م)',
+    lblOpenings: 'مساحة الأبواب والشبابيك (م²)',
+    lblBrickType: 'نوع البناء',
+    lblBoxArea: 'متر الكرتون الواحد (م²)',
+    lblRebarDia: 'قطر شيش الحديد (ملم)',
+    lblRebarLen: 'طول الحديد الكلي (متر)',
+    lblRoomType: 'طبيعة المكان',
+    btnCalculate: 'احسب الآن',
+    realEstateTitle: '📈 حاسبة الجدوى الاستثمارية والعقارية',
+    lblInvCost: 'تكلفة الأرض + البناء الكلي',
+    lblInvRet: 'سعر البيع المتوقع أو العائد',
+    designsEncyclopedia: '🗺️ موسوعة المخططات الهندسية (2D Blueprints)',
+    filterAll: 'الكل',
+    filterHouses: '🏠 البيوت (100م - 1400م)',
+    filterComm: '☕ كوفي ومطاعم وعطور',
+    filterPublic: '🏥 مولات ومستشفيات وحكومية',
+    settingsHeader: '⚙️ الإعدادات العامة والمظهر واللغات',
+    setLangTitle: '🌐 لغة التطبيق (لغات العراق والعالم)',
+    setLangDesc: 'اختر اللغة ليتم ترجمة كافة القوائم والأزرار والبيانات فوراً:',
+    setThemeTitle: '🎨 المظهر والضوء النهاري / الليلي',
+    lblTheme: 'نمط الألوان والإضاءة',
+    lblViewMode: 'شكل عرض الجداول والبيانات',
+    setFontTitle: '✍️ نوع وحجم الخط',
+    lblFontFamily: 'اختر نوع الخط',
+    lblFontSize: 'حجم الكتابة',
+    checklistTitle: '✅ قائمة فحص واستلام الأعمال في الموقع',
+    chk1: 'فحص نظافة الحفريات وحدل السبيس ووضع البسكويت الخرساني.',
+    chk2: 'استخدام الهزاز الميكانيكي أثناء الصب ورش الماء 7 أيام.',
+    chk3: 'وزن الجدران بالخيط والشاقول وفحص أنابيب الماء بالضغط.',
+    chk4: 'فحص ميول الحمامات والسطح باتجاه المنهول قبل التسليم.',
+    setBackupTitle: '💾 النسخ الاحتياطي وإدارة البيانات',
+    btnExport: '📤 نسخ البيانات احتياطياً',
+    btnPrintAll: '🖨️ طباعة / حفظ PDF',
+    btnEdit: '✏️ تعديل',
+    btnDelete: '🗑️ حذف',
+    btnPay: '💵 دفعة',
+    btnNextStage: '⏭️ مرحلة',
+    btnAdoptDesign: '➕ اعتماد هذا التصميم كمشروع جديد في قائمتي'
+  },
+  ku: {
+    dir: 'rtl',
+    appTitle: '🏛️ ئەندازیاری گشتگیر Pro',
+    appSub: 'بەڵێندەرایەتی • ڕۆژانە • نرخاندن • هاوکێشەکان • نەخشەکان',
+    settingsShort: 'ڕێکخستنەکان',
+    tabProjects: '🏗️ پڕۆژەکانم',
+    tabWorkers: '👷 ڕۆژانەی کرێکاران',
+    tabPricing: '💰 نرخاندنی بینا',
+    tabCalc: '📐 ژمێریارەکان',
+    tabDesigns: '🗺️ نەخشەکان',
+    tabSettings: '⚙️ ڕێکخستنەکان',
+    statActiveProj: 'پڕۆژە چالاکەکان',
+    statTotalContracts: 'کۆی گرێبەستەکان',
+    statRemaining: 'ماوە لای خاوەنکار',
+    addProjTitle: '➕ زیادکردنی پڕۆژەی نوێ',
+    editProjTitle: '✏️ دەستکاریکردنی پڕۆژە',
+    cancelEdit: 'هەڵوەشاندنەوە',
+    lblProjType: 'جۆری بینا / پڕۆژە',
+    lblProjName: 'ناوی پڕۆژە یان خاوەن موڵک',
+    lblArea: 'ڕووبەر (م²)',
+    lblFloors: 'ژمارەی نهۆمەکان',
+    lblBudget: 'بڕی گرێبەست',
+    lblPaid: 'بڕی وەرگیراو',
+    lblStage: 'قۆناغی ئێستای کار',
+    lblQuickTags: 'وردەکارییە هەڵبژێردراوەکان:',
+    lblNotes: 'تێبینی زیاتر',
+    btnSaveProj: '💾 پاشەکەوتکردنی پڕۆژە',
+    btnUpdateProj: '✅ پاشەکەوتکردنی گۆڕانکارییەکان',
+    myProjectsList: '📋 لیستی پڕۆژەکانی ئێستام',
+    statStaffCount: 'ژمارەی ستاف',
+    statTotalDays: 'کۆی ڕۆژەکان',
+    statNetPay: 'کۆی شایستەکان',
+    addWorkerTitle: '👷 تۆمارکردنی ڕۆژانەی کرێکار / ئەندازیار',
+    editWorkerTitle: '✏️ دەستکاریکردنی ڕۆژانە',
+    lblAssignedProj: 'پڕۆژەی دیاریکراو',
+    lblWorkerName: 'ناوی کرێکار / ئەندازیار',
+    lblRole: 'پسپۆڕی کار',
+    lblDailyWage: 'کرێی یەک ڕۆژ',
+    lblWorkDays: 'ژمارەی ڕۆژانی کارکردن',
+    lblOtHours: 'کاتژمێری زیادە',
+    lblOtRate: 'نرخی کاتژمێری زیادە',
+    lblAdvance: 'پێشەکی وەرگیراو',
+    btnSaveWorker: '➕ تۆمارکردن و هەژمارکردن',
+    btnUpdateWorker: '✅ پاشەکەوتکردنی گۆڕانکاری',
+    workersLogTitle: '📊 تۆماری ڕۆژانە و شایستەکان',
+    marketPricesTitle: '🧱 بۆرسەی نرخی کەرەستەی بیناسازی',
+    lblSteelPrice: 'نرخی یەک تۆن شیش',
+    lblCementPrice: 'نرخی یەک تۆن چیمەنتۆ',
+    lblBrickPrice: 'نرخی هەزار خشت',
+    lblSandPrice: 'نرخی مەترێک لم',
+    lblGravelPrice: 'نرخی مەترێک چەو',
+    lblTilePrice: 'نرخی مەترێک سیرامیک',
+    estHouseTitle: '🏠 خەمڵاندنی تێچووی دروستکردنی خانوو',
+    lblEstArea: 'ڕووبەری یەک نهۆم (م²)',
+    lblFinishLevel: 'ئاستی تەواوکردن',
+    btnCalcEst: '💰 هەژمارکردنی تێچوو',
+    calcConcreteTitle: '🧱 ١. هاوکێشەی کۆنکرێت',
+    calcWallTitle: '🏗️ ٢. هاوکێشەی خشت و بلۆک',
+    calcTileRebarTitle: '📐 ٣. سیرامیک و کێشی شیش',
+    calcHvacTitle: '❄️ ٤. ساردکەرەوە و بۆیاخ',
+    lblLength: 'درێژی (م)',
+    lblWidth: 'پانی (م)',
+    lblDepth: 'ئەستووری (م)',
+    lblHeight: 'بەرزی (م)',
+    lblMixRatio: 'ڕێژەی تێکەڵکردن',
+    lblWallLen: 'درێژی دیوار (م)',
+    lblOpenings: 'ڕووبەری دەرگا و پەنجەرە',
+    lblBrickType: 'جۆری بینا',
+    lblBoxArea: 'مەتری یەک کارتۆن',
+    lblRebarDia: 'تیرەی شیش (ملم)',
+    lblRebarLen: 'درێژی گشتی شیش (م)',
+    lblRoomType: 'جۆری شوێن',
+    btnCalculate: 'ئێستا هەژماری بکە',
+    realEstateTitle: '📈 هەژمارکردنی قازانجی خانووبەرە',
+    lblInvCost: 'تێچووی زەوی + بینا',
+    lblInvRet: 'نرخی فرۆشتنی پێشبینیکراو',
+    designsEncyclopedia: '🗺️ ئینسایکلۆپیدیای نەخشە ئەندازیارییەکان',
+    filterAll: 'هەمووی',
+    filterHouses: '🏠 خانوو (100م - 1400م)',
+    filterComm: '☕ کافێ و ڕێستۆرانت و عەتر',
+    filterPublic: '🏥 مۆڵ و نەخۆشخانە',
+    settingsHeader: '⚙️ ڕێکخستنە گشتییەکان و زمان و ڕووکار',
+    setLangTitle: '🌐 زمانی بەرنامە',
+    setLangDesc: 'زمانێک هەڵبژێرە بۆ گۆڕینی هەموو نووسینەکانی ناو بەرنامەکە:',
+    setThemeTitle: '🎨 ڕووکار و ڕووناکی ڕۆژ / شەو',
+    lblTheme: 'شێوازی ڕەنگەکان',
+    lblViewMode: 'شێوازی پیشاندانی خشتەکان',
+    setFontTitle: '✍️ جۆر و قەبارەی فۆنت',
+    lblFontFamily: 'جۆری فۆنت هەڵبژێرە',
+    lblFontSize: 'قەبارەی نووسین',
+    checklistTitle: '✅ لیستی پشکنینی کارەکان لە پڕۆژە',
+    chk1: 'پشکنینی پاکوخاوێنی بناغە و دانانی بسکیتی کۆنکرێت.',
+    chk2: 'بەکارهێنانی هەزاز لە کاتی کۆنکرێتکردن و ئاودان بۆ ٧ ڕۆژ.',
+    chk3: 'ڕێککردنی دیوارەکان بە دەزوو و پشکنینی بۆرییەکان.',
+    chk4: 'پشکنینی لێژی حەمام و سەربان بەرەو مەنهۆڵ.',
+    setBackupTitle: '💾 پاشەکەوتکردنی داتاکان',
+    btnExport: '📤 کۆپیکردنی داتاکان',
+    btnPrintAll: '🖨️ چاپکردن / PDF',
+    btnEdit: '✏️ دەستکاری',
+    btnDelete: '🗑️ سڕینەوە',
+    btnPay: '💵 پارەدان',
+    btnNextStage: '⏭️ قۆناغی دواتر',
+    btnAdoptDesign: '➕ وەرگرتنی ئەم نەخشەیە وەک پڕۆژەی نوێ'
+  },
+  badini: {
+    dir: 'rtl',
+    appTitle: '🏛️ ئەندازیارێ گشتی Pro',
+    appSub: 'بەڵێندەری • ڕۆژانە • نرخاندن • هاوکێشە • نەخشە',
+    settingsShort: 'ڕێکخستن',
+    tabProjects: '🏗️ پڕۆژێن من',
+    tabWorkers: '👷 ڕۆژانێن کرێکاران',
+    tabPricing: '💰 نرخاندنا ئاڤاهی',
+    tabCalc: '📐 ژمێریار',
+    tabDesigns: '🗺️ نەخشە',
+    tabSettings: '⚙️ ڕێکخستن',
+    statActiveProj: 'پڕۆژێن چالاک',
+    statTotalContracts: 'کۆمێ گرێبەستان',
+    statRemaining: 'مای ل دەف خودانی',
+    addProjTitle: '➕ زێدەکرنا پڕۆژەیەکێ نوی',
+    editProjTitle: '✏️ دەستکاریکرنا پڕۆژەی',
+    cancelEdit: 'هەلوەشاندن',
+    lblProjType: 'جۆرێ ئاڤاهی / پڕۆژەی',
+    lblProjName: 'ناڤێ پڕۆژەی یان خودانی',
+    lblArea: 'ڕووبەر (م²)',
+    lblFloors: 'ژمارا قاتان',
+    lblBudget: 'بهایێ گرێبەستێ',
+    lblPaid: 'پارێ وەرگرتی',
+    lblStage: 'قۆناغا نوکە یا کاری',
+    lblQuickTags: 'هویرکاریێن هەلبژارتی:',
+    lblNotes: 'تێبینیێن زێدە',
+    btnSaveProj: '💾 تۆمارکرنا پڕۆژەی',
+    btnUpdateProj: '✅ تۆمارکرنا گوهۆڕینان',
+    myProjectsList: '📋 لیستا پڕۆژێن من یێن نوکە',
+    statStaffCount: 'ژمارا ستافی',
+    statTotalDays: 'کۆمێ ڕۆژان',
+    statNetPay: 'کۆمێ مافێن دارایی',
+    addWorkerTitle: '👷 تۆمارکرنا ڕۆژانا کرێکار / ئەندازیاری',
+    editWorkerTitle: '✏️ دەستکاریکرنا ڕۆژانێ',
+    lblAssignedProj: 'پڕۆژێ دیارکری',
+    lblWorkerName: 'ناڤێ کرێکار / ئەندازیاری',
+    lblRole: 'بسپۆڕیا کاری',
+    lblDailyWage: 'کرێیا ئێک ڕۆژ',
+    lblWorkDays: 'ژمارا ڕۆژێن کاری',
+    lblOtHours: 'سەعەتێن زێدە',
+    lblOtRate: 'بهایێ سەعەتا زێدە',
+    lblAdvance: 'پێشەکیێن وەرگرتی',
+    btnSaveWorker: '➕ تۆمارکرن و هەژمارتن',
+    btnUpdateWorker: '✅ تۆمارکرنا گوهۆڕینان',
+    workersLogTitle: '📊 تۆمارا ڕۆژانان و مافێن دارایی',
+    marketPricesTitle: '🧱 بۆرسا بهايێن کەرەستێن ئاڤاکرنێ',
+    lblSteelPrice: 'بهایێ تۆنەکێ شیشی',
+    lblCementPrice: 'بهایێ تۆنەکێ چیمەنتۆی',
+    lblBrickPrice: 'بهایێ هزار خشتان',
+    lblSandPrice: 'بهایێ مەترەکێ لمی',
+    lblGravelPrice: 'بهایێ مەترەکێ چەوی',
+    lblTilePrice: 'بهایێ مەترەکێ سیرامیکی',
+    estHouseTitle: '🏠 خەملاندنا تێچوویێ ئاڤاکرنا خانی',
+    lblEstArea: 'ڕووبەرێ ئێک قاتی (م²)',
+    lblFinishLevel: 'ئاستێ تمامکرنێ',
+    btnCalcEst: '💰 هەژمارتنا تێچووی',
+    calcConcreteTitle: '🧱 ١. هاوکێشا کۆنکرێتی',
+    calcWallTitle: '🏗️ ٢. هاوکێشا خشت و بلۆکان',
+    calcTileRebarTitle: '📐 ٣. سیرامیک و کێشێ شیشی',
+    calcHvacTitle: '❄️ ٤. تەبرید و بۆیاغ',
+    lblLength: 'درێژی (م)',
+    lblWidth: 'پانی (م)',
+    lblDepth: 'ستویری (م)',
+    lblHeight: 'بلندی (م)',
+    lblMixRatio: 'ڕێژا تێکەلکرنێ',
+    lblWallLen: 'درێژیا دیواری (م)',
+    lblOpenings: 'ڕووبەرێ دەرگەهـ و پەنجەران',
+    lblBrickType: 'جۆرێ ئاڤاکرنێ',
+    lblBoxArea: 'مەترێ ئێک کارتۆنی',
+    lblRebarDia: 'تیرێ شیشی (ملم)',
+    lblRebarLen: 'درێژیا گشتی یا شیشی (م)',
+    lblRoomType: 'جۆرێ جهی',
+    btnCalculate: 'نوکە هەژمار بکە',
+    realEstateTitle: '📈 هەژمارتنا قازانجێ عەقاراتان',
+    lblInvCost: 'تێچوویێ عەردی + ئاڤاهی',
+    lblInvRet: 'بهایێ فرۆتنا پێشبینیکری',
+    designsEncyclopedia: '🗺️ ئینسایکلۆپیدیا نەخشێن ئەندازیاری',
+    filterAll: 'هەمی',
+    filterHouses: '🏠 خانی (100م - 1400م)',
+    filterComm: '☕ کافێ و خوارنگەهـ و عەتر',
+    filterPublic: '🏥 مۆل و نەخۆشخانە',
+    settingsHeader: '⚙️ ڕێکخستنێن گشتی و زمان و ڕووکار',
+    setLangTitle: '🌐 زمانێ بەرنامەی',
+    setLangDesc: 'زمانەکی هەلبژێرە دا هەمی نڤیسینێن ناڤ بەرنامەی بهێنە گوهۆڕین:',
+    setThemeTitle: '🎨 ڕووکار و ڕۆناهیا ڕۆژ / شەڤ',
+    lblTheme: 'شێوازێ ڕەنگان',
+    lblViewMode: 'شێوازێ نیشاندانا خشتەیان',
+    setFontTitle: '✍️ جۆر و قەبارێ فۆنتی',
+    lblFontFamily: 'جۆرێ فۆنتی هەلبژێرە',
+    lblFontSize: 'قەبارێ نڤیسینێ',
+    checklistTitle: '✅ لیستا پشکنینا کاران ل پڕۆژەی',
+    chk1: 'پشکنینا پاقژیا بنیاتان و دانانا بسکیتێ کۆنکرێتی.',
+    chk2: 'بکارئینانا هەزازی د دەمێ کۆنکرێتکرنێ دا و ئاڤدان ٧ ڕۆژان.',
+    chk3: 'ڕێککرنا دیواران ب دەزی و پشکنینا بۆریێن ئاڤێ.',
+    chk4: 'پشکنینا لێژیا حەمام و بانان بەرەف مەنهۆلی.',
+    setBackupTitle: '💾 هەلگرتنا داتایان',
+    btnExport: '📤 کۆپیکرنا داتایان',
+    btnPrintAll: '🖨️ چاپکرن / PDF',
+    btnEdit: '✏️ دەستکاری',
+    btnDelete: '🗑️ ژێبرن',
+    btnPay: '💵 پارەدان',
+    btnNextStage: '⏭️ قۆناغا دی',
+    btnAdoptDesign: '➕ وەرگرتنا ڤی نەخشەی وەک پڕۆژێ نوی'
+  },
+  tr: {
+    dir: 'ltr',
+    appTitle: '🏛️ Mühendis Pro Kapsamlı',
+    appSub: 'Müteahhitlik • Yevmiye • Fiyatlandırma • Formüller • Projeler',
+    settingsShort: 'Ayarlar',
+    tabProjects: '🏗️ Projelerim',
+    tabWorkers: '👷 Yevmiye & Ekip',
+    tabPricing: '💰 İnşaat Maliyeti',
+    tabCalc: '📐 Hesaplayıcı',
+    tabDesigns: '🗺️ Tasarımlar',
+    tabSettings: '⚙️ Ayarlar',
+    statActiveProj: 'Aktif Projeler',
+    statTotalContracts: 'Toplam Sözleşme',
+    statRemaining: 'Kalan Alacak',
+    addProjTitle: '➕ Yeni Proje ve Detay Ekle',
+    editProjTitle: '✏️ Proje Bilgilerini Düzenle',
+    cancelEdit: 'İptal',
+    lblProjType: 'Yapı / Proje Türü',
+    lblProjName: 'Proje veya Müşteri Adı',
+    lblArea: 'Alan (m²)',
+    lblFloors: 'Kat Sayısı',
+    lblBudget: 'Toplam Sözleşme Bedeli',
+    lblPaid: 'Alınan Ödeme',
+    lblStage: 'Mevcut İnşaat Aşaması',
+    lblQuickTags: 'İsteğe Bağlı Detaylar (Seçmek için dokunun):',
+    lblNotes: 'Ek Notlar / Bölümler',
+    btnSaveProj: '💾 Projeyi Kaydet',
+    btnUpdateProj: '✅ Değişiklikleri Kaydet',
+    myProjectsList: '📋 Mevcut Projelerim',
+    statStaffCount: 'Personel Sayısı',
+    statTotalDays: 'Toplam Gün',
+    statNetPay: 'Net Hakediş',
+    addWorkerTitle: '👷 İşçi / Mühendis Yevmiyesi Ekle',
+    editWorkerTitle: '✏️ Yevmiye Kaydını Düzenle',
+    lblAssignedProj: 'Atanan Proje',
+    lblWorkerName: 'İşçi / Mühendis Adı',
+    lblRole: 'Meslek / Uzmanlık',
+    lblDailyWage: 'Günlük Yevmiye',
+    lblWorkDays: 'Çalışılan Gün (örn. 30)',
+    lblOtHours: 'Fazla Mesai Saati',
+    lblOtRate: 'Saatlik Mesai Ücreti',
+    lblAdvance: 'Alınan Avans / Kesinti',
+    btnSaveWorker: '➕ Kaydet ve Hesapla',
+    btnUpdateWorker: '✅ Yevmiyeyi Güncelle',
+    workersLogTitle: '📊 Yevmiye ve Hakediş Tablosu',
+    marketPricesTitle: '🧱 İnşaat Malzeme Piyasa Fiyatları',
+    lblSteelPrice: 'Demir Ton Fiyatı',
+    lblCementPrice: 'Çimento Ton Fiyatı (20 Torba)',
+    lblBrickPrice: '1000 Adet Tuğla Fiyatı',
+    lblSandPrice: 'Kum m³ Fiyatı',
+    lblGravelPrice: 'Çakıl m³ Fiyatı',
+    lblTilePrice: 'Seramik ve İşçilik m² Fiyatı',
+    estHouseTitle: '🏠 Ev İnşaat Maliyeti Tahmin Hesaplayıcı',
+    lblEstArea: 'Tek Kat Alanı (m²)',
+    lblFinishLevel: 'İnşaat Seviyesi',
+    btnCalcEst: '💰 Maliyet ve Miktar Hesapla',
+    calcConcreteTitle: '🧱 1. Betonarme Hesabı',
+    calcWallTitle: '🏗️ 2. Tuğla / Briket Duvar Hesabı',
+    calcTileRebarTitle: '📐 3. Seramik ve Demir Ağırlığı',
+    calcHvacTitle: '❄️ 4. Klima (Ton) ve Boya Hesabı',
+    lblLength: 'Uzunluk (m)',
+    lblWidth: 'Genişlik (m)',
+    lblDepth: 'Kalınlık (m)',
+    lblHeight: 'Yükseklik (m)',
+    lblMixRatio: 'Karışım Oranı',
+    lblWallLen: 'Toplam Duvar Uzunluğu (m)',
+    lblOpenings: 'Kapı ve Pencere Alanı (m²)',
+    lblBrickType: 'Duvar Türü',
+    lblBoxArea: 'Kutu Alanı (m²)',
+    lblRebarDia: 'Demir Çapı (mm)',
+    lblRebarLen: 'Toplam Demir Uzunluğu (m)',
+    lblRoomType: 'Mekan Türü',
+    btnCalculate: 'Şimdi Hesapla',
+    realEstateTitle: '📈 Gayrimenkul Yatırım Getirisi',
+    lblInvCost: 'Arsa + İnşaat Maliyeti',
+    lblInvRet: 'Beklenen Satış / Getiri',
+    designsEncyclopedia: '🗺️ Mimari Plan Ansiklopedisi (2D)',
+    filterAll: 'Tümü',
+    filterHouses: '🏠 Evler (100m - 1400m)',
+    filterComm: '☕ Kafe, Restoran & Parfüm',
+    filterPublic: '🏥 AVM, Hastane & Kamu',
+    settingsHeader: '⚙️ Genel Ayarlar, Görünüm ve Diller',
+    setLangTitle: '🌐 Uygulama Dili',
+    setLangDesc: 'Tüm menü ve butonları anında çevirmek için dil seçin:',
+    setThemeTitle: '🎨 Tema ve Gündüz / Gece Modu',
+    lblTheme: 'Renk ve Aydınlatma Modu',
+    lblViewMode: 'Tablo ve Veri Görünümü',
+    setFontTitle: '✍️ Yazı Tipi ve Boyutu',
+    lblFontFamily: 'Yazı Tipi Seçin',
+    lblFontSize: 'Yazı Boyutu',
+    checklistTitle: '✅ Şantiye İş Teslim Kontrol Listesi',
+    chk1: 'Temel kazı temizliği, sıkıştırma ve paspayı kontrolü.',
+    chk2: 'Dökümde vibratör kullanımı ve 7 gün kürleme (sulama).',
+    chk3: 'Duvar şakül kontrolü ve tesisat basınç testi.',
+    chk4: 'Islak hacim ve çatı eğimlerinin süzgece doğru kontrolü.',
+    setBackupTitle: '💾 Yedekleme ve Veri Yönetimi',
+    btnExport: '📤 Verileri Yedekle',
+    btnPrintAll: '🖨️ Yazdır / PDF Kaydet',
+    btnEdit: '✏️ Düzenle',
+    btnDelete: '🗑️ Sil',
+    btnPay: '💵 Ödeme',
+    btnNextStage: '⏭️ Aşama',
+    btnAdoptDesign: '➕ Bu Tasarımı Yeni Proje Olarak Ekle'
+  },
+  en: {
+    dir: 'ltr',
+    appTitle: '🏛️ Engineer Pro All-in-One',
+    appSub: 'Contracting • Timesheets • Pricing • Formulas • Blueprints',
+    settingsShort: 'Settings',
+    tabProjects: '🏗️ My Projects',
+    tabWorkers: '👷 Staff & Wages',
+    tabPricing: '💰 Cost Estimator',
+    tabCalc: '📐 Calculators',
+    tabDesigns: '🗺️ Blueprints',
+    tabSettings: '⚙️ Settings',
+    statActiveProj: 'Active Projects',
+    statTotalContracts: 'Total Contracts',
+    statRemaining: 'Balance Due',
+    addProjTitle: '➕ Add New Project & Specs',
+    editProjTitle: '✏️ Edit Project Details',
+    cancelEdit: 'Cancel Edit',
+    lblProjType: 'Property / Project Type',
+    lblProjName: 'Project or Client Name',
+    lblArea: 'Area (m²)',
+    lblFloors: 'Floors Count',
+    lblBudget: 'Total Contract Value',
+    lblPaid: 'Amount Received',
+    lblStage: 'Current Construction Stage',
+    lblQuickTags: 'Optional Specs (Tap to toggle):',
+    lblNotes: 'Additional Notes / Layout',
+    btnSaveProj: '💾 Save Project',
+    btnUpdateProj: '✅ Save Project Changes',
+    myProjectsList: '📋 My Active Projects',
+    statStaffCount: 'Total Staff',
+    statTotalDays: 'Total Days',
+    statNetPay: 'Net Payable',
+    addWorkerTitle: '👷 Add Worker / Engineer Timesheet',
+    editWorkerTitle: '✏️ Edit Timesheet Entry',
+    lblAssignedProj: 'Assigned Project',
+    lblWorkerName: 'Worker / Engineer Name',
+    lblRole: 'Role / Specialty',
+    lblDailyWage: 'Daily Wage',
+    lblWorkDays: 'Days Worked (e.g. 30)',
+    lblOtHours: 'Overtime Hours',
+    lblOtRate: 'Overtime Hourly Rate',
+    lblAdvance: 'Advances / Deductions',
+    btnSaveWorker: '➕ Add & Calculate Total',
+    btnUpdateWorker: '✅ Update Timesheet',
+    workersLogTitle: '📊 Staff Timesheets & Payroll',
+    marketPricesTitle: '🧱 Construction Material Market Prices',
+    lblSteelPrice: 'Rebar Steel Price / Ton',
+    lblCementPrice: 'Cement Price / Ton (20 Bags)',
+    lblBrickPrice: 'Bricks Price / 1000 pcs',
+    lblSandPrice: 'Washed Sand Price / m³',
+    lblGravelPrice: 'Gravel Price / m³',
+    lblTilePrice: 'Tiles + Labor Price / m²',
+    estHouseTitle: '🏠 Full House Construction Cost Estimator',
+    lblEstArea: 'Single Floor Area (m²)',
+    lblFinishLevel: 'Finishing Grade',
+    btnCalcEst: '💰 Estimate Cost & Quantities',
+    calcConcreteTitle: '🧱 1. Reinforced Concrete Formula',
+    calcWallTitle: '🏗️ 2. Bricks / Blocks & Plaster Formula',
+    calcTileRebarTitle: '📐 3. Tiles & Rebar Weight Formula',
+    calcHvacTitle: '❄️ 4. HVAC Cooling (Tons) & Paint',
+    lblLength: 'Length (m)',
+    lblWidth: 'Width (m)',
+    lblDepth: 'Thickness (m)',
+    lblHeight: 'Height (m)',
+    lblMixRatio: 'Mix Ratio',
+    lblWallLen: 'Total Wall Length (m)',
+    lblOpenings: 'Doors & Windows Area (m²)',
+    lblBrickType: 'Masonry Type',
+    lblBoxArea: 'Area per Box (m²)',
+    lblRebarDia: 'Rebar Diameter (mm)',
+    lblRebarLen: 'Total Rebar Length (m)',
+    lblRoomType: 'Space Type',
+    btnCalculate: 'Calculate Now',
+    realEstateTitle: '📈 Real Estate ROI Calculator',
+    lblInvCost: 'Land + Construction Cost',
+    lblInvRet: 'Expected Sale / Return',
+    designsEncyclopedia: '🗺️ Architectural Blueprints Encyclopedia',
+    filterAll: 'All',
+    filterHouses: '🏠 Houses (100m - 1400m)',
+    filterComm: '☕ Cafe, Restaurant & Perfume',
+    filterPublic: '🏥 Malls, Hospitals & Gov',
+    settingsHeader: '⚙️ General Settings, Appearance & Languages',
+    setLangTitle: '🌐 Application Language',
+    setLangDesc: 'Select a language to translate the entire interface immediately:',
+    setThemeTitle: '🎨 Theme & Day / Night Lighting',
+    lblTheme: 'Color & Lighting Theme',
+    lblViewMode: 'Tables & Data Layout',
+    setFontTitle: '✍️ Font Family & Size',
+    lblFontFamily: 'Select Font Family',
+    lblFontSize: 'Text Size',
+    checklistTitle: '✅ Site Inspection & Handover Checklist',
+    chk1: 'Excavation cleaning, compaction, and concrete spacers check.',
+    chk2: 'Mechanical vibrator during pouring and 7-day water curing.',
+    chk3: 'Wall plumb alignment and plumbing pressure test.',
+    chk4: 'Bathroom and roof slope check towards floor drains.',
+    setBackupTitle: '💾 Backup & Data Management',
+    btnExport: '📤 Copy Backup Data',
+    btnPrintAll: '🖨️ Print / Save PDF',
+    btnEdit: '✏️ Edit',
+    btnDelete: '🗑️ Delete',
+    btnPay: '💵 Payment',
+    btnNextStage: '⏭️ Stage',
+    btnAdoptDesign: '➕ Adopt This Blueprint as New Project'
+  }
+};
+
+// ==================== البيانات والإعدادات المخزنة ====================
+let appConfig = JSON.parse(localStorage.getItem('eng_pro_config')) || {
+  lang: 'ar',
+  theme: 'light',
+  font: "'Cairo', sans-serif",
+  fontSize: '14px',
+  viewMode: 'cards'
+};
+
 let projects = JSON.parse(localStorage.getItem('eng_pro_projects')) || [
   {
     id: 1,
@@ -749,12 +1356,7 @@ let workers = JSON.parse(localStorage.getItem('eng_pro_workers')) || [
 ];
 
 let prices = JSON.parse(localStorage.getItem('eng_pro_prices')) || {
-  steel: 950000,
-  cement: 135000,
-  brick: 220000,
-  sand: 22000,
-  gravel: 25000,
-  tile: 25000
+  steel: 950000, cement: 135000, brick: 220000, sand: 22000, gravel: 25000, tile: 25000
 };
 
 // ==================== قاعدة بيانات التصاميم الهندسية ====================
@@ -792,23 +1394,6 @@ const blueprintsData = [
       <text x="320" y="55" fill="#fff" font-size="10" text-anchor="middle">مطبخ حار/بارد</text>
       <text x="120" y="135" fill="#fff" font-size="11" text-anchor="middle">صالة معيشة ودرج</text>
       <text x="300" y="135" fill="#fff" font-size="11" text-anchor="middle">غرفة نوم + حمام</text>
-    </svg>`
-  },
-  {
-    cat: 'houses',
-    title: 'تصميم بيت 150 م² (واجهة 7.5م × 20م)',
-    dims: '7.5م × 20م | تصميم عصري متوازن',
-    specs: ['كراج وحديقة 3.5×5.5م', 'استقبال ضيوف 4×5.5م', 'هول مفتوح 5×5.5م', 'مطبخ كبير + مخزن', 'غرفتين نوم أرضية', 'جناح ماستر علوي'],
-    svg: `<svg viewBox="0 0 400 190" class="blueprint-svg">
-      <rect x="20" y="15" width="360" height="160" fill="none" stroke="#60a5fa" stroke-width="3"/>
-      <rect x="20" y="15" width="130" height="70" fill="rgba(16,185,129,0.2)" stroke="#34d399"/>
-      <rect x="150" y="15" width="230" height="70" fill="none" stroke="#93c5fd"/>
-      <rect x="20" y="85" width="220" height="90" fill="none" stroke="#93c5fd"/>
-      <rect x="240" y="85" width="140" height="90" fill="none" stroke="#93c5fd"/>
-      <text x="85" y="54" fill="#34d399" font-size="10" text-anchor="middle">كراج وحديقة</text>
-      <text x="265" y="54" fill="#fff" font-size="11" text-anchor="middle">استقبال ضيوف واسع 4×5.5م</text>
-      <text x="130" y="132" fill="#fff" font-size="11" text-anchor="middle">صالة معيشة + مطبخ</text>
-      <text x="310" y="132" fill="#fbbf24" font-size="10" text-anchor="middle">غرف النوم</text>
     </svg>`
   },
   {
@@ -853,7 +1438,7 @@ const blueprintsData = [
     cat: 'commercial',
     title: 'تصميم محل عطور راقي (40م² - 60م²)',
     dims: 'واجهة 5م × عمق 10م | ديكور فندقي وإضاءة LED',
-    specs: ['واجهة زجاج سيكوريت', 'جزيرة تجربة وسطية (Testing Bar)', 'رفوف جدارية بإضاءة مخفية', 'كاونتر كاشير وتغليف', 'مخزن مكيف للعطور', 'أرضيات بورسلين لامع'],
+    specs: ['واجهة زجاج سيكوريت', 'جزيرة تجربة وسطية', 'رفوف جدارية بإضاءة مخفية', 'كاونتر كاشير وتغليف', 'مخزن مكيف للعطور', 'أرضيات بورسلين لامع'],
     svg: `<svg viewBox="0 0 400 190" class="blueprint-svg">
       <rect x="40" y="15" width="320" height="160" fill="none" stroke="#f59e0b" stroke-width="3"/>
       <rect x="40" y="15" width="320" height="22" fill="rgba(245,158,11,0.2)" stroke="#fbbf24"/>
@@ -948,27 +1533,82 @@ const blueprintsData = [
   }
 ];
 
-// ==================== التحكم بالواجهة والثيمات ====================
+// ==================== إدارة الإعدادات والترجمة الديناميكية ====================
+function saveConfig() {
+  localStorage.setItem('eng_pro_config', JSON.stringify(appConfig));
+}
+
+function t(key) {
+  const lang = appConfig.lang || 'ar';
+  return (i18nDict[lang] && i18nDict[lang][key]) || i18nDict['ar'][key] || key;
+}
+
+function applyLanguage(lang) {
+  appConfig.lang = lang;
+  saveConfig();
+  const dict = i18nDict[lang] || i18nDict.ar;
+  document.documentElement.setAttribute('lang', lang);
+  document.documentElement.setAttribute('dir', dict.dir);
+  document.getElementById('appLangSelect').value = lang;
+
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const k = el.getAttribute('data-i18n');
+    if (dict[k]) el.innerText = dict[k];
+  });
+
+  renderProjects();
+  renderWorkers();
+  renderDesigns();
+}
+
+function applyTheme(theme) {
+  appConfig.theme = theme;
+  saveConfig();
+  document.body.setAttribute('data-theme', theme);
+  document.getElementById('appThemeSelect').value = theme;
+}
+
+function applyFont(font) {
+  appConfig.font = font;
+  saveConfig();
+  document.documentElement.style.setProperty('--font-main', font);
+  document.getElementById('appFontSelect').value = font;
+}
+
+function applyFontSize(size) {
+  appConfig.fontSize = size;
+  saveConfig();
+  document.documentElement.style.setProperty('--base-size', size);
+  document.getElementById('appFontSizeSelect').value = size;
+}
+
+function applyViewMode(mode) {
+  appConfig.viewMode = mode;
+  saveConfig();
+  document.getElementById('appViewSelect').value = mode;
+  renderProjects();
+  renderWorkers();
+}
+
 function switchTab(tabId, btn) {
   document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
   document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
   document.getElementById(tabId).classList.add('active');
-  btn.classList.add('active');
+  if (btn) btn.classList.add('active');
 }
 
-function changeTheme(t) { document.body.setAttribute('data-theme', t); }
-function changeFont(f) { document.documentElement.style.setProperty('--font-main', f); }
 function toggleChip(el) { el.classList.toggle('selected'); }
 function formatNum(n) { return Math.round(Number(n || 0)).toLocaleString('en-US'); }
 
-// ==================== 1. منطق المشاريع والدفعات ====================
-function saveProjects() {
+// ==================== 1. المشاريع (+ التعديل الكامل) ====================
+function persistProjects() {
   localStorage.setItem('eng_pro_projects', JSON.stringify(projects));
   renderProjects();
   updateProjectDropdowns();
 }
 
-function addProject() {
+function saveProjectForm() {
+  const editId = document.getElementById('editProjId').value;
   const type = document.getElementById('projType').value;
   const name = document.getElementById('projName').value.trim();
   const area = parseFloat(document.getElementById('projArea').value) || 0;
@@ -979,78 +1619,131 @@ function addProject() {
   const notes = document.getElementById('projNotes').value.trim();
 
   const tags = [];
-  document.querySelectorAll('#quickTags .chip.selected').forEach(c => {
-    tags.push(c.innerText);
-    c.classList.remove('selected');
+  document.querySelectorAll('#quickTags .chip.selected').forEach(c => tags.push(c.innerText));
+
+  if (!name) { alert('يرجى إدخال اسم المشروع'); return; }
+
+  if (editId) {
+    const idx = projects.findIndex(p => p.id == editId);
+    if (idx !== -1) {
+      projects[idx] = { ...projects[idx], type, name, area, floors, budget, paid, stage, tags, notes };
+    }
+  } else {
+    projects.unshift({ id: Date.now(), type, name, area, floors, budget, paid, stage, tags, notes });
+  }
+
+  resetProjectForm();
+  persistProjects();
+}
+
+function editProject(id) {
+  const p = projects.find(x => x.id === id);
+  if (!p) return;
+
+  document.getElementById('editProjId').value = p.id;
+  document.getElementById('projType').value = p.type;
+  document.getElementById('projName').value = p.name;
+  document.getElementById('projArea').value = p.area;
+  document.getElementById('projFloors').value = p.floors;
+  document.getElementById('projBudget').value = p.budget;
+  document.getElementById('projPaid').value = p.paid;
+  document.getElementById('projStage').value = p.stage;
+  document.getElementById('projNotes').value = p.notes || '';
+
+  document.querySelectorAll('#quickTags .chip').forEach(c => {
+    c.classList.toggle('selected', p.tags.includes(c.innerText));
   });
 
-  if (!name) { alert('يرجى إدخال اسم المشروع أو صاحب الملك'); return; }
+  document.getElementById('projFormTitle').innerText = t('editProjTitle');
+  document.getElementById('saveProjBtn').innerText = t('btnUpdateProj');
+  document.getElementById('cancelEditProjBtn').style.display = 'inline-block';
+  document.getElementById('projectFormCard').scrollIntoView({ behavior: 'smooth' });
+}
 
-  projects.unshift({ id: Date.now(), type, name, area, floors, budget, paid, stage, tags, notes });
+function resetProjectForm() {
+  document.getElementById('editProjId').value = '';
   document.getElementById('projName').value = '';
   document.getElementById('projArea').value = '';
   document.getElementById('projBudget').value = '';
   document.getElementById('projPaid').value = '0';
   document.getElementById('projNotes').value = '';
-  saveProjects();
+  document.querySelectorAll('#quickTags .chip').forEach(c => c.classList.remove('selected'));
+  document.getElementById('projFormTitle').innerText = t('addProjTitle');
+  document.getElementById('saveProjBtn').innerText = t('btnSaveProj');
+  document.getElementById('cancelEditProjBtn').style.display = 'none';
 }
 
 function addPayment(id) {
-  const amt = parseFloat(prompt('أدخل مبلغ الدفعة الجديدة المستلمة من الزبون:'));
+  const amt = parseFloat(prompt('أدخل مبلغ الدفعة الجديدة:'));
   if (!isNaN(amt) && amt > 0) {
     const p = projects.find(x => x.id === id);
-    if (p) { p.paid += amt; saveProjects(); }
+    if (p) { p.paid += amt; persistProjects(); }
   }
 }
 
 function nextStage(id) {
   const p = projects.find(x => x.id === id);
-  if (p) { p.stage = p.stage >= 5 ? 1 : p.stage + 1; saveProjects(); }
+  if (p) { p.stage = p.stage >= 5 ? 1 : p.stage + 1; persistProjects(); }
 }
 
 function deleteProject(id) {
-  if (confirm('حذف هذا المشروع من القائمة؟')) {
+  if (confirm('حذف هذا المشروع؟')) {
     projects = projects.filter(p => p.id !== id);
-    saveProjects();
+    persistProjects();
   }
 }
 
 function renderProjects() {
   const list = document.getElementById('projectsList');
   list.innerHTML = '';
-  const stageNames = ['', '1. حفريات وأساسات', '2. هيكل وبناء', '3. تأسيسات كهرباء وصحيات', '4. لبخ وبياض وسيراميك', '5. ديكور وتسليم مفتاح'];
+  const stageNames = ['', '1. أساسات (20%)', '2. هيكل وبناء (40%)', '3. تأسيسات (60%)', '4. لبخ وسيراميك (80%)', '5. تسليم (100%)'];
   let totalBudget = 0, totalRem = 0;
 
-  projects.forEach(p => {
-    const rem = Math.max(0, p.budget - p.paid);
-    const pct = p.stage * 20;
-    totalBudget += p.budget;
-    totalRem += rem;
-    const tagsHtml = p.tags.map(t => `<span class="badge">✓ ${t}</span>`).join('');
+  if (appConfig.viewMode === 'table' && projects.length > 0) {
+    let rows = projects.map(p => {
+      const rem = Math.max(0, p.budget - p.paid);
+      totalBudget += p.budget; totalRem += rem;
+      return `<tr>
+        <td><strong>${p.name}</strong><br><small>${p.type} (${p.area}م²)</small></td>
+        <td>${formatNum(p.budget)}<br><small style="color:var(--danger)">متبقي: ${formatNum(rem)}</small></td>
+        <td><span class="badge">${stageNames[p.stage]}</span></td>
+        <td class="no-print">
+          <button class="btn btn-sm btn-warning" onclick="editProject(${p.id})">✏️</button>
+          <button class="btn btn-sm btn-danger" onclick="deleteProject(${p.id})">🗑️</button>
+        </td>
+      </tr>`;
+    }).join('');
+    list.innerHTML = `<table class="compact-table"><thead><tr><th>المشروع</th><th>المالية</th><th>المرحلة</th><th class="no-print">إجراء</th></tr></thead><tbody>${rows}</tbody></table>`;
+  } else {
+    projects.forEach(p => {
+      const rem = Math.max(0, p.budget - p.paid);
+      const pct = p.stage * 20;
+      totalBudget += p.budget; totalRem += rem;
+      const tagsHtml = p.tags.map(tg => `<span class="badge">✓ ${tg}</span>`).join('');
 
-    list.innerHTML += `
-      <div class="project-card">
-        <div class="project-header">
-          <div class="project-title">${p.type}: ${p.name}</div>
-          <span class="badge" style="background:var(--accent); color:#fff;">${stageNames[p.stage]}</span>
+      list.innerHTML += `
+        <div class="project-card">
+          <div class="project-header">
+            <div class="project-title">${p.type}: ${p.name}</div>
+            <span class="badge" style="background:var(--accent); color:#fff;">${stageNames[p.stage]}</span>
+          </div>
+          <div class="progress-wrap"><div class="progress-fill" style="width:${pct}%"></div></div>
+          <div class="project-meta">
+            📏 ${formatNum(p.area)} م² (${p.floors} طابق) | 💰 ${formatNum(p.budget)} | ✅ ${formatNum(p.paid)} | ⏳ <strong style="color:var(--danger)">${formatNum(rem)}</strong>
+          </div>
+          <div>${tagsHtml}</div>
+          ${p.notes ? `<div style="font-size:0.76rem; color:var(--muted); margin-top:4px;">📝 ${p.notes}</div>` : ''}
+          <div style="display:flex; gap:5px; flex-wrap:wrap; margin-top:8px;" class="no-print">
+            <button class="btn btn-sm btn-warning" onclick="editProject(${p.id})">${t('btnEdit')}</button>
+            <button class="btn btn-sm btn-success" onclick="addPayment(${p.id})">${t('btnPay')}</button>
+            <button class="btn btn-sm btn-primary" onclick="nextStage(${p.id})">${t('btnNextStage')}</button>
+            <button class="btn btn-sm btn-danger" onclick="deleteProject(${p.id})">${t('btnDelete')}</button>
+          </div>
         </div>
-        <div class="progress-wrap"><div class="progress-fill" style="width:${pct}%"></div></div>
-        <div class="project-meta">
-          📏 المساحة: <strong>${formatNum(p.area)} م²</strong> (${p.floors} طابق) | نسبة الإنجاز: <strong>${pct}%</strong><br>
-          💰 العقد: <strong>${formatNum(p.budget)}</strong> | ✅ الواصل: <strong style="color:var(--success)">${formatNum(p.paid)}</strong> | ⏳ المتبقي: <strong style="color:var(--danger)">${formatNum(rem)}</strong>
-        </div>
-        <div>${tagsHtml}</div>
-        ${p.notes ? `<div style="font-size:0.75rem; color:var(--muted); margin-top:5px;">📝 ${p.notes}</div>` : ''}
-        <div style="display:flex; gap:5px; flex-wrap:wrap; margin-top:8px;" class="no-print">
-          <button class="btn btn-sm btn-success" onclick="addPayment(${p.id})">💵 استلام دفعة</button>
-          <button class="btn btn-sm btn-primary" onclick="nextStage(${p.id})">⏭️ المرحلة التالية</button>
-          <button class="btn btn-sm btn-danger" onclick="deleteProject(${p.id})">🗑️ حذف</button>
-        </div>
-      </div>
-    `;
-  });
+      `;
+    });
+  }
 
-  if (projects.length === 0) list.innerHTML = '<p style="text-align:center; color:var(--muted); font-size:0.82rem;">لا توجد مشاريع مضافة حالياً.</p>';
   document.getElementById('statProjCount').innerText = projects.length;
   document.getElementById('statProjBudget').innerText = formatNum(totalBudget);
   document.getElementById('statProjRem').innerText = formatNum(totalRem);
@@ -1060,25 +1753,26 @@ function updateProjectDropdowns() {
   const s1 = document.getElementById('workerProject');
   const s2 = document.getElementById('filterWorkerProject');
   s1.innerHTML = '';
-  s2.innerHTML = '<option value="ALL">كل المشاريع</option>';
+  s2.innerHTML = '<option value="ALL">ALL</option>';
   projects.forEach(p => {
     const opt = `<option value="${p.id}">${p.type}: ${p.name}</option>`;
     s1.innerHTML += opt;
     s2.innerHTML += opt;
   });
-  if (projects.length === 0) s1.innerHTML = '<option value="0">عمل عام</option>';
+  if (projects.length === 0) s1.innerHTML = '<option value="0">General</option>';
 }
 
-// ==================== 2. منطق اليوميات والكادر ====================
-function saveWorkers() {
+// ==================== 2. يوميات الكادر (+ التعديل الكامل) ====================
+function persistWorkers() {
   localStorage.setItem('eng_pro_workers', JSON.stringify(workers));
   renderWorkers();
 }
 
-function addWorker() {
+function saveWorkerForm() {
+  const editId = document.getElementById('editWorkerId').value;
   const pSel = document.getElementById('workerProject');
   const projectId = parseInt(pSel.value) || 0;
-  const projectName = pSel.options[pSel.selectedIndex]?.text || 'عمل عام';
+  const projectName = pSel.options[pSel.selectedIndex]?.text || 'General';
   const name = document.getElementById('workerName').value.trim();
   const role = document.getElementById('workerRole').value;
   const dailyWage = parseFloat(document.getElementById('workerDailyWage').value) || 0;
@@ -1087,16 +1781,52 @@ function addWorker() {
   const overtimeRate = parseFloat(document.getElementById('workerOvertimeRate').value) || 0;
   const advance = parseFloat(document.getElementById('workerAdvance').value) || 0;
 
-  if (!name || dailyWage <= 0) { alert('أدخل الاسم وأجر اليومية'); return; }
+  if (!name || dailyWage <= 0) { alert('يرجى إدخال الاسم وأجر اليومية'); return; }
 
-  workers.unshift({ id: Date.now(), projectId, projectName, name, role, dailyWage, days, overtimeHrs, overtimeRate, advance });
+  if (editId) {
+    const idx = workers.findIndex(w => w.id == editId);
+    if (idx !== -1) {
+      workers[idx] = { ...workers[idx], projectId, projectName, name, role, dailyWage, days, overtimeHrs, overtimeRate, advance };
+    }
+  } else {
+    workers.unshift({ id: Date.now(), projectId, projectName, name, role, dailyWage, days, overtimeHrs, overtimeRate, advance });
+  }
+
+  resetWorkerForm();
+  persistWorkers();
+}
+
+function editWorker(id) {
+  const w = workers.find(x => x.id === id);
+  if (!w) return;
+
+  document.getElementById('editWorkerId').value = w.id;
+  document.getElementById('workerProject').value = w.projectId;
+  document.getElementById('workerName').value = w.name;
+  document.getElementById('workerRole').value = w.role;
+  document.getElementById('workerDailyWage').value = w.dailyWage;
+  document.getElementById('workerDays').value = w.days;
+  document.getElementById('workerOvertimeHrs').value = w.overtimeHrs;
+  document.getElementById('workerOvertimeRate').value = w.overtimeRate;
+  document.getElementById('workerAdvance').value = w.advance || 0;
+
+  document.getElementById('workerFormTitle').innerText = t('editWorkerTitle');
+  document.getElementById('saveWorkerBtn').innerText = t('btnUpdateWorker');
+  document.getElementById('cancelEditWorkerBtn').style.display = 'inline-block';
+  document.getElementById('workerFormCard').scrollIntoView({ behavior: 'smooth' });
+}
+
+function resetWorkerForm() {
+  document.getElementById('editWorkerId').value = '';
   document.getElementById('workerName').value = '';
   document.getElementById('workerAdvance').value = '0';
-  saveWorkers();
+  document.getElementById('workerFormTitle').innerText = t('addWorkerTitle');
+  document.getElementById('saveWorkerBtn').innerText = t('btnSaveWorker');
+  document.getElementById('cancelEditWorkerBtn').style.display = 'none';
 }
 
 function deleteWorker(id) {
-  if (confirm('حذف هذا السجل؟')) { workers = workers.filter(w => w.id !== id); saveWorkers(); }
+  if (confirm('حذف هذا السجل؟')) { workers = workers.filter(w => w.id !== id); persistWorkers(); }
 }
 
 function renderWorkers() {
@@ -1106,43 +1836,63 @@ function renderWorkers() {
   const list = f === 'ALL' ? workers : workers.filter(w => w.projectId == f);
   let totalDays = 0, netGrandTotal = 0;
 
-  list.forEach(w => {
-    const basePay = w.dailyWage * w.days;
-    const otPay = w.overtimeHrs * w.overtimeRate;
-    const gross = basePay + otPay;
-    const net = gross - (w.advance || 0);
-    totalDays += w.days;
-    netGrandTotal += net;
+  if (appConfig.viewMode === 'table' && list.length > 0) {
+    let rows = list.map(w => {
+      const gross = (w.dailyWage * w.days) + (w.overtimeHrs * w.overtimeRate);
+      const net = gross - (w.advance || 0);
+      totalDays += w.days; netGrandTotal += net;
+      return `<tr>
+        <td><strong>${w.name}</strong><br><small>${w.role}</small></td>
+        <td>${w.days} × ${formatNum(w.dailyWage)}<br><small>+${w.overtimeHrs}h</small></td>
+        <td><strong style="color:var(--primary)">${formatNum(net)}</strong></td>
+        <td class="no-print">
+          <button class="btn btn-sm btn-warning" onclick="editWorker(${w.id})">✏️</button>
+          <button class="btn btn-sm btn-danger" onclick="deleteWorker(${w.id})">🗑️</button>
+        </td>
+      </tr>`;
+    }).join('');
+    box.innerHTML = `<table class="compact-table"><thead><tr><th>الاسم</th><th>الأيام</th><th>الصافي</th><th class="no-print">إجراء</th></tr></thead><tbody>${rows}</tbody></table>`;
+  } else {
+    list.forEach(w => {
+      const basePay = w.dailyWage * w.days;
+      const otPay = w.overtimeHrs * w.overtimeRate;
+      const gross = basePay + otPay;
+      const net = gross - (w.advance || 0);
+      totalDays += w.days;
+      netGrandTotal += net;
 
-    box.innerHTML += `
-      <div class="worker-item">
-        <div class="worker-top">
-          <div>
-            <strong>${w.name}</strong> <span class="badge">${w.role}</span><br>
-            <small style="color:var(--muted)">📍 ${w.projectName}</small>
+      box.innerHTML += `
+        <div class="worker-item">
+          <div class="worker-top">
+            <div>
+              <strong>${w.name}</strong> <span class="badge">${w.role}</span><br>
+              <small style="color:var(--muted)">📍 ${w.projectName}</small>
+            </div>
+            <div style="display:flex; gap:4px;" class="no-print">
+              <button class="btn btn-sm btn-warning" onclick="editWorker(${w.id})">✏️</button>
+              <button class="btn btn-sm btn-danger" onclick="deleteWorker(${w.id})">✕</button>
+            </div>
           </div>
-          <button class="btn btn-sm btn-danger no-print" onclick="deleteWorker(${w.id})">✕</button>
+          <div class="worker-grid">
+            <div class="worker-cell"><small>اليومية × الأيام</small><strong>${formatNum(w.dailyWage)} × ${w.days}</strong></div>
+            <div class="worker-cell"><small>الإضافي (${w.overtimeHrs}h)</small><strong style="color:var(--success)">+${formatNum(otPay)}</strong></div>
+            <div class="worker-cell"><small>السُلف</small><strong style="color:var(--danger)">-${formatNum(w.advance)}</strong></div>
+          </div>
+          <div style="margin-top:6px; padding-top:6px; border-top:1px dashed var(--border); display:flex; justify-content:space-between; font-size:0.82rem;">
+            <span>المجموع: <strong>${formatNum(gross)}</strong></span>
+            <span style="color:var(--primary); font-weight:800;">الصافي: ${formatNum(net)}</span>
+          </div>
         </div>
-        <div class="worker-grid">
-          <div class="worker-cell"><small>اليومية × الأيام</small><strong>${formatNum(w.dailyWage)} × ${w.days}</strong></div>
-          <div class="worker-cell"><small>الإضافي (${w.overtimeHrs} س)</small><strong style="color:var(--success)">+${formatNum(otPay)}</strong></div>
-          <div class="worker-cell"><small>السُلف المخصومة</small><strong style="color:var(--danger)">-${formatNum(w.advance)}</strong></div>
-        </div>
-        <div style="margin-top:6px; padding-top:6px; border-top:1px dashed var(--border); display:flex; justify-content:space-between; font-size:0.82rem;">
-          <span>المجموع الكلي: <strong>${formatNum(gross)}</strong></span>
-          <span style="color:var(--primary); font-weight:800;">الصافي المستحق: ${formatNum(net)}</span>
-        </div>
-      </div>
-    `;
-  });
+      `;
+    });
+  }
 
-  if (list.length === 0) box.innerHTML = '<p style="text-align:center; color:var(--muted); font-size:0.82rem;">لا توجد يوميات مسجلة.</p>';
   document.getElementById('statWorkerCount').innerText = list.length;
-  document.getElementById('statWorkerDays').innerText = totalDays + ' يوم';
+  document.getElementById('statWorkerDays').innerText = totalDays;
   document.getElementById('statWorkerTotal').innerText = formatNum(netGrandTotal);
 }
 
-// ==================== 3. تسعير البناء وتخمين الكلفة ====================
+// ==================== 3. التسعير والحاسبات ====================
 function loadPrices() {
   document.getElementById('pSteel').value = prices.steel;
   document.getElementById('pCement').value = prices.cement;
@@ -1169,7 +1919,7 @@ function estimateHouseCost() {
   const area = parseFloat(document.getElementById('estArea').value) || 0;
   const floors = parseInt(document.getElementById('estFloors').value) || 1;
   const level = document.getElementById('estLevel').value;
-  if (area <= 0) { alert('أدخل مساحة البناء'); return; }
+  if (area <= 0) return;
 
   const totalArea = area * floors;
   const steelTons = (totalArea * 0.055).toFixed(2);
@@ -1178,32 +1928,27 @@ function estimateHouseCost() {
   const sandM3 = Math.ceil(totalArea * 0.45);
   const gravelM3 = Math.ceil(totalArea * 0.40);
 
-  let materialsCost = (steelTons * prices.steel) + (cementTons * prices.cement) + (bricksThousands * prices.brick) + (sandM3 * prices.sand) + (gravelM3 * prices.gravel);
-  let multiplier = level === 'skeleton' ? 1.35 : (level === 'standard' ? 2.45 : 3.25);
-  let totalCost = materialsCost * multiplier;
-  let costPerM2 = totalCost / totalArea;
+  let matCost = (steelTons * prices.steel) + (cementTons * prices.cement) + (bricksThousands * prices.brick) + (sandM3 * prices.sand) + (gravelM3 * prices.gravel);
+  let mult = level === 'skeleton' ? 1.35 : (level === 'standard' ? 2.45 : 3.25);
+  let total = matCost * mult;
 
   const res = document.getElementById('resEstimate');
   res.style.display = 'block';
   res.innerHTML = `
-    <strong>📊 التقرير الهندسي التخميني (${totalArea} م² إجمالي):</strong><br>
-    • حديد التسليح المطلوب: <strong>${steelTons} طن</strong><br>
-    • الأسمنت المطلوب: <strong>${cementTons} طن</strong> (${Math.ceil(cementTons * 20)} كيس)<br>
-    • الطابوق المطلوب: <strong>${bricksThousands} ألف طابوقة</strong><br>
-    • الرمل: <strong>${sandM3} م³</strong> | الحصى: <strong>${gravelM3} م³</strong><br>
+    <strong>📊 (${totalArea} m²):</strong><br>
+    • Steel: <strong>${steelTons} Ton</strong> | Cement: <strong>${cementTons} Ton</strong><br>
+    • Bricks: <strong>${bricksThousands} K</strong> | Sand: <strong>${sandM3} m³</strong> | Gravel: <strong>${gravelM3} m³</strong><br>
     <hr style="margin:6px 0; border-color:var(--success);">
-    💰 <strong>الكلفة الإجمالية التقديرية: ${formatNum(totalCost)}</strong><br>
-    📐 معدل تكلفة المتر المربع الواحد: <strong>${formatNum(costPerM2)} / م²</strong>
+    💰 <strong>Total Cost: ${formatNum(total)}</strong> (${formatNum(total / totalArea)} / m²)
   `;
 }
 
-// ==================== 4. الحاسبات الهندسية ====================
 function calcConcrete() {
   const l = parseFloat(document.getElementById('cLen').value) || 0;
   const w = parseFloat(document.getElementById('cWid').value) || 0;
   const d = parseFloat(document.getElementById('cDep').value) || 0;
   const mix = document.getElementById('cMix').value;
-  if (l <= 0 || w <= 0 || d <= 0) { alert('أدخل الأبعاد'); return; }
+  if (l <= 0 || w <= 0 || d <= 0) return;
 
   const wet = l * w * d;
   const dry = wet * 1.54;
@@ -1214,11 +1959,7 @@ function calcConcrete() {
 
   const res = document.getElementById('resConcrete');
   res.style.display = 'block';
-  res.innerHTML = `
-    ✅ حجم الخرسانة: <strong>${wet.toFixed(2)} م³</strong><br>
-    🧱 الأسمنت: <strong>${bags} كيس</strong> | الرمل: <strong>${sand} م³</strong> | الحصى: <strong>${gravel} م³</strong><br>
-    💵 تكلفة المواد حسب البورصة: <strong>${formatNum(cost)}</strong>
-  `;
+  res.innerHTML = `✅ Volume: <strong>${wet.toFixed(2)} m³</strong> | Cement: <strong>${bags} Bags</strong> | Sand: <strong>${sand} m³</strong> | Gravel: <strong>${gravel} m³</strong><br>💵 Cost: <strong>${formatNum(cost)}</strong>`;
 }
 
 function calcWall() {
@@ -1227,19 +1968,15 @@ function calcWall() {
   const o = parseFloat(document.getElementById('wOpen').value) || 0;
   const type = document.getElementById('wType').value;
   const net = (l * h) - o;
-  if (net <= 0) { alert('تأكد من الأبعاد'); return; }
+  if (net <= 0) return;
 
   let rate = type === 'brick' ? 58 : (type === 'block' ? 13 : 8.5);
-  let label = type === 'brick' ? 'طابوقة' : (type === 'block' ? 'بلوكة' : 'قطعة ثرمستون');
   let qty = Math.ceil(net * rate);
   let bags = Math.ceil(net * 0.25);
 
   const res = document.getElementById('resWall');
   res.style.display = 'block';
-  res.innerHTML = `
-    ✅ المساحة الصافية: <strong>${net.toFixed(2)} م²</strong><br>
-    🧱 الكمية المطلوبة: <strong>${formatNum(qty)} ${label}</strong> | الأسمنت للمونة واللبخ: <strong>${bags} كيس</strong>
-  `;
+  res.innerHTML = `✅ Net Area: <strong>${net.toFixed(2)} m²</strong> | Units: <strong>${formatNum(qty)}</strong> | Cement: <strong>${bags} Bags</strong>`;
 }
 
 function calcTilesRebar() {
@@ -1250,16 +1987,11 @@ function calcTilesRebar() {
 
   const totalArea = area * 1.10;
   const boxes = Math.ceil(totalArea / box);
-  const wPerM = (dia * dia) / 162;
-  const totalW = (wPerM * len).toFixed(2);
-  const steelCost = (totalW / 1000) * prices.steel;
+  const totalW = (((dia * dia) / 162) * len).toFixed(2);
 
   const res = document.getElementById('resTiles');
   res.style.display = 'block';
-  res.innerHTML = `
-    ✅ السيراميك (مع 10% هدر): <strong>${totalArea.toFixed(2)} م²</strong> (<strong>${boxes} كرتون</strong>) — التكلفة: <strong>${formatNum(totalArea * prices.tile)}</strong><br>
-    🔩 وزن الحديد (قطر ${dia} ملم): <strong>${totalW} كغم</strong> — التكلفة: <strong>${formatNum(steelCost)}</strong>
-  `;
+  res.innerHTML = `✅ Tiles (+10%): <strong>${totalArea.toFixed(2)} m²</strong> (<strong>${boxes} Boxes</strong>)<br>🔩 Rebar Weight (Ø${dia}mm): <strong>${totalW} kg</strong>`;
 }
 
 function calcHvacPaint() {
@@ -1267,36 +1999,29 @@ function calcHvacPaint() {
   const w = parseFloat(document.getElementById('rWid').value) || 0;
   const h = parseFloat(document.getElementById('rHei').value) || 3;
   const factor = parseFloat(document.getElementById('rSun').value) || 1;
-  if (l <= 0 || w <= 0) { alert('أدخل أبعاد الغرفة'); return; }
+  if (l <= 0 || w <= 0) return;
 
   const tons = ((l * w * h * 300 * factor) / 12000).toFixed(2);
-  const wallArea = 2 * (l + w) * h + (l * w);
-  const paintGallons = Math.ceil((wallArea * 2) / 12);
+  const paintGallons = Math.ceil(((2 * (l + w) * h + (l * w)) * 2) / 12);
 
   const res = document.getElementById('resHvac');
   res.style.display = 'block';
-  res.innerHTML = `
-    ❄️ سعة التبريد المطلوبة: <strong>${tons} طن تبريد</strong> (يناسبها سبلت ${Math.ceil(tons)} طن)<br>
-    🎨 كمية الصبغ المطلوبة للجدران والسقف (وجهين): <strong>${paintGallons} غالون (3.6 لتر)</strong>
-  `;
+  res.innerHTML = `❄️ Cooling: <strong>${tons} Ton</strong> | 🎨 Paint (2 Coats): <strong>${paintGallons} Gallons</strong>`;
 }
 
-// ==================== 5. موسوعة التصاميم والاستثمار العقاري ====================
 function calcRealEstate() {
   const cost = parseFloat(document.getElementById('invCost').value) || 0;
   const ret = parseFloat(document.getElementById('invReturn').value) || 0;
-  if (cost <= 0 || ret <= 0) { alert('أدخل الأرقام'); return; }
+  if (cost <= 0 || ret <= 0) return;
 
   const profit = ret - cost;
   const roi = ((profit / cost) * 100).toFixed(1);
   const res = document.getElementById('resInvest');
   res.style.display = 'block';
-  res.innerHTML = `
-    💵 صافي الربح / الفرق: <strong style="color:${profit >= 0 ? 'var(--success)' : 'var(--danger)'}">${formatNum(profit)}</strong><br>
-    📈 نسبة العائد على الاستثمار (ROI): <strong>${roi}%</strong>
-  `;
+  res.innerHTML = `💵 Net Profit: <strong>${formatNum(profit)}</strong> | 📈 ROI: <strong>${roi}%</strong>`;
 }
 
+// ==================== 4. المخططات والتصاميم ====================
 function filterDesigns(cat, btn) {
   document.querySelectorAll('.filter-pill').forEach(p => p.classList.remove('active'));
   btn.classList.add('active');
@@ -1304,6 +2029,7 @@ function filterDesigns(cat, btn) {
 }
 
 function adoptDesign(title) {
+  resetProjectForm();
   document.getElementById('projName').value = title;
   switchTab('projects', document.querySelectorAll('.tab-btn')[0]);
   window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -1325,19 +2051,27 @@ function renderDesigns(cat = 'ALL') {
         ${d.svg}
         <div class="specs-list">${specsHtml}</div>
         <button class="btn btn-sm btn-accent no-print" style="margin-top:8px; width:100%;" onclick="adoptDesign('${d.title}')">
-          ➕ اعتماد هذا التصميم كمشروع جديد في قائمتي
+          ${t('btnAdoptDesign')}
         </button>
       </div>
     `;
   });
 }
 
-// التشغيل الأولي
+function exportBackup() {
+  const dataStr = JSON.stringify({ projects, workers, prices });
+  navigator.clipboard?.writeText(dataStr);
+  alert('✅ تم نسخ جميع بيانات مشاريعك ويومياتك إلى الحافظة بنجاح!');
+}
+
+// ==================== التشغيل وتطبيق الإعدادات المحفوظة ====================
 loadPrices();
-renderProjects();
 updateProjectDropdowns();
-renderWorkers();
-renderDesigns();
+applyTheme(appConfig.theme);
+applyFont(appConfig.font);
+applyFontSize(appConfig.fontSize);
+applyViewMode(appConfig.viewMode);
+applyLanguage(appConfig.lang);
 </script>
 </body>
 </html>
